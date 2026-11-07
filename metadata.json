@@ -1,0 +1,6 @@
+{
+  "name": "九州秋楓漫旅 2026",
+  "description": "專為 2026 九州賞楓自駕打造的手機旅遊 Web App，整合每日行程、日系手繪互動地圖、分區導航與備用美食、行前清單、最新退稅與單檔 HTML 匯出。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC:wght@400;700&family=Ma+Shan+Zheng&display=swap');
+@import "tailwindcss";
+
+:root {
+  --color-maple: #C86D56;
+  --color-maple-dark: #A8523D;
+  --color-maple-light: #F7EBE8;
+  --color-ginkgo: #D9A05B;
+  --color-moss: #6B8177;
+  --color-slate-morandi: #54606E;
+  --color-sand: #F3EFEA;
+  --color-paper: #FAF8F5;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+  background-color: var(--color-paper);
+  color: #374151;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Japanese & Traditional Chinese Hand-drawn handwritten typography for maps */
+.font-handwritten {
+  font-family: 'LXGW WenKai TC', 'Ma Shan Zheng', cursive, sans-serif !important;
+}
+
+/* Hide scrollbar for clean horizontal scrollers while keeping touch scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Glassmorphism Morandi Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(230, 220, 210, 0.7);
+  box-shadow: 0 4px 20px -2px rgba(180, 150, 140, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.glass-card-subtle {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(235, 226, 218, 0.6);
+}
+
+.glass-header {
+  background: rgba(250, 248, 245, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(225, 215, 205, 0.6);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(225, 215, 205, 0.6);
+}
