@@ -241,11 +241,19 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
                 hotel.mealPlan.includes('二食')
                   ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                  : hotel.mealPlan.includes('早餐')
+                  : hotel.mealPlan.startsWith('純住宿') || hotel.mealPlan.includes('不含早餐')
+                  ? 'bg-slate-100 text-slate-800 border border-slate-300'
+                  : hotel.mealPlan.includes('含早餐') || hotel.mealPlan.includes('早餐')
                   ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
                   : 'bg-slate-100 text-slate-800 border border-slate-300'
               }`}>
-                {hotel.mealPlan.includes('二食') ? '一泊二食 (早晚餐)' : hotel.mealPlan.includes('早餐') ? '含早餐' : '純住宿'}
+                {hotel.mealPlan.includes('二食')
+                  ? '一泊二食 (早晚餐)'
+                  : hotel.mealPlan.startsWith('純住宿') || hotel.mealPlan.includes('不含早餐')
+                  ? '純住宿'
+                  : hotel.mealPlan.includes('含早餐') || hotel.mealPlan.includes('早餐')
+                  ? '含早餐'
+                  : '純住宿'}
               </span>
             ) : (
               <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-md">

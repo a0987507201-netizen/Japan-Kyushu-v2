@@ -16,9 +16,9 @@ import { ChecklistsView } from './components/ChecklistsView';
 import { TravelInfoView } from './components/TravelInfoView';
 
 export default function App() {
-  // Storage key versioned to force sync of 11/20 & 11/21 updated timelines
-  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261120_amakusa_kuradake';
-  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261120_amakusa';
+  // Storage key versioned to force sync of parking info for 11/16 Yufuin & 11/18 ETS INN Hakata
+  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261118_parking_notes';
+  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261118_parking_notes';
 
   // Load state from localStorage or initialize with master seed data
   const [days, setDays] = useState<DaySchedule[]>(() => {
@@ -29,12 +29,16 @@ export default function App() {
         if (
           Array.isArray(parsed) &&
           parsed[0]?.weekday === '週六' &&
-          parsed[2]?.spots?.some(s => s.name.includes('由布まぶし')) &&
-          parsed[3]?.spots?.some(s => s.name.includes('皿倉山')) &&
-          parsed[4]?.spots?.some(s => s.name.includes('聖誕市集')) &&
-          parsed[5]?.spots?.some(s => s.name.includes('橋本')) &&
-          parsed[6]?.spots?.some(s => s.name.includes('倉岳神社') || s.name.includes('海床路')) &&
-          parsed[7]?.spots?.some(s => s.name.includes('還車') || s.name.includes('星巴克'))
+          parsed[0]?.title === '華航CI198 高雄直飛熊本、高千穗划船與南阿蘇' &&
+          parsed[0]?.spots?.some(s => s.name.includes('ニコニコレンタカー 熊本空港店')) &&
+          parsed[1]?.spots?.some(s => s.name === '上色見熊野神社') &&
+          parsed[2]?.spots?.some(s => s.notes?.includes('金麟湖入口停車場')) &&
+          parsed[3]?.spots?.some(s => s.name === '鶴見岳高空纜車') &&
+          parsed[4]?.spots?.some(s => s.notes?.includes('エコロパーク 博多区堅粕第１')) &&
+          parsed[5]?.spots?.some(s => s.name === '糸島 櫻井二見之浦 夫婦岩') &&
+          parsed[6]?.spots?.some(s => s.name === '倉岳神社') &&
+          parsed[7]?.spots?.some(s => s.name === '早餐：星巴克') &&
+          parsed[7]?.title === '星巴克早餐、華航CI199熊本返回高雄'
         ) {
           return parsed;
         }
@@ -53,7 +57,8 @@ export default function App() {
         if (
           Array.isArray(parsed) &&
           parsed.some(h => h.name.includes('ETS INN')) &&
-          parsed.some(h => h.name.includes('黒崎'))
+          parsed.some(h => h.name.includes('黒崎')) &&
+          parsed.find(h => h.id === 'hotel-1120')?.mealPlan === '純住宿'
         ) {
           return parsed;
         }
@@ -107,6 +112,11 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_days_v20261114_takachiho_aso');
       localStorage.removeItem('kyushu_2026_days_v20261116_beppu_kurosaki');
       localStorage.removeItem('kyushu_2026_days_v20261118_ets_hashimoto');
+      localStorage.removeItem('kyushu_2026_days_v20261120_amakusa_kuradake');
+      localStorage.removeItem('kyushu_2026_days_v20261115_title_updates');
+      localStorage.removeItem('kyushu_2026_days_v20261118_to_21_titles');
+      localStorage.removeItem('kyushu_2026_days_v20261121_ci199_return');
+      localStorage.removeItem('kyushu_2026_days_v20261114_niconico_title');
       localStorage.removeItem('kyushu_2026_hotels');
       localStorage.removeItem('kyushu_2026_hotels_v2');
       localStorage.removeItem('kyushu_2026_hotels_v3');
@@ -114,16 +124,32 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_hotels_v20261117_hotels');
       localStorage.removeItem('kyushu_2026_hotels_v20261116_suginoi_booking');
       localStorage.removeItem('kyushu_2026_hotels_v20261118_ets_inn');
+      localStorage.removeItem('kyushu_2026_hotels_v20261120_amakusa');
+      localStorage.removeItem('kyushu_2026_hotels_v20261115_title_updates');
+      localStorage.removeItem('kyushu_2026_hotels_v20261118_to_21_titles');
+      localStorage.removeItem('kyushu_2026_hotels_v20261120_room_only');
+      localStorage.removeItem('kyushu_2026_hotels_v20261114_niconico_title');
     } catch {}
 
-    // Check if days currently loaded on client need updating to the latest 11/20 & 11/21 timelines
+    // Check if days currently loaded on client need updating to the latest spot titles and Day 1/8 title
     if (
-      !days[6]?.spots?.some(s => s.name.includes('倉岳神社')) ||
-      !days[7]?.spots?.some(s => s.name.includes('還車'))
+      days[0]?.title !== '華航CI198 高雄直飛熊本、高千穗划船與南阿蘇' ||
+      !days[0]?.spots?.some(s => s.name.includes('ニコニコレンタカー 熊本空港店')) ||
+      !days[1]?.spots?.some(s => s.name === '上色見熊野神社') ||
+      !days[2]?.spots?.some(s => s.notes?.includes('金麟湖入口停車場')) ||
+      !days[3]?.spots?.some(s => s.name === '鶴見岳高空纜車') ||
+      !days[4]?.spots?.some(s => s.notes?.includes('エコロパーク 博多区堅粕第１')) ||
+      !days[5]?.spots?.some(s => s.name === '糸島 櫻井二見之浦 夫婦岩') ||
+      !days[6]?.spots?.some(s => s.name === '倉岳神社') ||
+      !days[7]?.spots?.some(s => s.name === '早餐：星巴克') ||
+      days[7]?.title !== '星巴克早餐、華航CI199熊本返回高雄'
     ) {
       setDays(INITIAL_DAYS);
     }
-    if (!hotels.some(h => h.name.includes('And COMFY'))) {
+    if (
+      hotels.find(h => h.id === 'hotel-1120')?.mealPlan !== '純住宿' ||
+      !hotels.find(h => h.id === 'hotel-1118')?.notes?.includes('エコロパーク 博多区堅粕第１')
+    ) {
       setHotels(INITIAL_HOTELS);
     }
   }, []);
