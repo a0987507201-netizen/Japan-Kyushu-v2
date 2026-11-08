@@ -237,9 +237,21 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
           <div className="flex items-center gap-1.5 mb-2.5 px-1">
             <span className="w-1.5 h-4 rounded-full bg-amber-600" />
             <h3 className="text-sm font-bold text-slate-800">今晚精選旅宿</h3>
-            <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.2 rounded-md">
-              一泊享受
-            </span>
+            {hotel.mealPlan ? (
+              <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
+                hotel.mealPlan.includes('二食')
+                  ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                  : hotel.mealPlan.includes('早餐')
+                  ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                  : 'bg-slate-100 text-slate-800 border border-slate-300'
+              }`}>
+                {hotel.mealPlan.includes('二食') ? '一泊二食 (早晚餐)' : hotel.mealPlan.includes('早餐') ? '含早餐' : '純住宿'}
+              </span>
+            ) : (
+              <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-md">
+                一泊享受
+              </span>
+            )}
           </div>
 
           <div className="glass-card rounded-3xl p-4 bg-gradient-to-br from-[#FFFDF9] via-[#FAF6F0] to-[#F5ECE4] border border-[#E5DACF] shadow-sm">
@@ -264,7 +276,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
             </div>
 
             {/* Check-in / Out Time Badges */}
-            <div className="mt-2.5 flex items-center gap-2 text-xs font-mono">
+            <div className="mt-2.5 flex items-center flex-wrap gap-2 text-xs font-mono">
               <span className="bg-white/80 px-2 py-0.5 rounded-lg border border-[#E8DFD8] text-slate-600">
                 入住: <strong className="text-slate-800">{hotel.checkIn}</strong>
               </span>
@@ -273,7 +285,20 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               </span>
             </div>
 
-            <div className="text-xs text-slate-500 mt-1.5 flex items-start gap-1">
+            {/* Meal Plan Remarks */}
+            {hotel.mealPlan && (
+              <div className="mt-2.5 flex items-center gap-2 p-2 rounded-xl bg-amber-50/90 border border-amber-200/90 text-xs">
+                <span className="font-bold text-amber-900 flex items-center gap-1 shrink-0">
+                  <Utensils className="w-3.5 h-3.5 text-amber-700" />
+                  餐食專案：
+                </span>
+                <span className="font-medium text-amber-950 font-sans">
+                  {hotel.mealPlan}
+                </span>
+              </div>
+            )}
+
+            <div className="text-xs text-slate-500 mt-2 flex items-start gap-1">
               <MapPin className="w-3.5 h-3.5 shrink-0 text-slate-400 mt-0.5" />
               <span>{hotel.address}</span>
             </div>

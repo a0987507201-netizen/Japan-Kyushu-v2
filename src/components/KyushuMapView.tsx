@@ -51,6 +51,10 @@ export function getSpotRegion(name: string, location: string): 'kumamoto' | 'oit
     text.includes('福岡') ||
     text.includes('博多') ||
     text.includes('小倉') ||
+    text.includes('黒崎') ||
+    text.includes('北九州') ||
+    text.includes('八幡') ||
+    text.includes('堅粕') ||
     text.includes('皿倉山') ||
     text.includes('天神') ||
     text.includes('糸島') ||

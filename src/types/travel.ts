@@ -25,6 +25,7 @@ export interface HotelItem {
   address: string;
   checkIn: string;
   checkOut: string;
+  mealPlan?: string;
   services: string[];
   highlights: string[];
   notes?: string;

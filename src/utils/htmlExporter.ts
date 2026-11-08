@@ -180,8 +180,15 @@ export function exportSingleFileHtml(
 
             \${hotel ? \`
               <div class="glass-card rounded-2xl p-4 bg-gradient-to-br from-amber-50/60 to-orange-50/40 border border-amber-200/80">
-                <span class="text-[10px] font-bold text-amber-800 tracking-wide uppercase">今晚精選住宿</span>
-                <h3 class="text-sm font-bold text-slate-800 mt-0.5">\${hotel.name} (\${hotel.jpName})</h3>
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-bold text-amber-800 tracking-wide uppercase">今晚精選旅宿</span>
+                  \${hotel.mealPlan ? \`<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">\${hotel.mealPlan}</span>\` : ''}
+                </div>
+                <h3 class="text-sm font-bold text-slate-800 mt-1">\${hotel.name} (\${hotel.jpName})</h3>
+                <div class="text-xs text-slate-600 mt-1 flex flex-wrap gap-2 font-mono">
+                  <span>入住: <strong>\${hotel.checkIn}</strong></span>
+                  <span>退房: <strong>\${hotel.checkOut}</strong></span>
+                </div>
                 <p class="text-xs text-slate-500 mt-1">地址：\${hotel.address}</p>
                 <div class="text-xs text-amber-900 mt-2 space-y-1">
                   \${hotel.highlights.map(hl => \`<div>✦ \${hl}</div>\`).join('')}

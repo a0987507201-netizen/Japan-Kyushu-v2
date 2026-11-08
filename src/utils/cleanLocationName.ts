@@ -33,7 +33,9 @@ const SPOT_CLEAN_MAP: Record<string, string> = {
   '志高湖 (Lake Shidaka)': '志高湖',
   '由布岳登山口高原展望': '由布岳登山口',
   '由布院散策 & 人氣名物排隊必吃': '由布院溫泉街',
+  '由布院午後散策與湖畔風光': '由布院散策',
   '由布院在地生鮮超市採買食材': '由布院生鮮超市',
+  '入住 コンフォートホテル 黒崎 (Comfort Hotel Kurosaki)': 'コンフォートホテル 黒崎',
   '入住 金鱗湖畔獨棟民宿 David No Yakata': 'David No Yakata 民宿',
 
   // Day 5
@@ -41,6 +43,7 @@ const SPOT_CLEAN_MAP: Record<string, string> = {
   '深耶馬溪「一目八景」賞楓 & 茶屋早餐': '深耶馬溪 (一目八景)',
   '英彥山神宮 (Hikosan Jingu)': '英彥山神宮',
   '皿倉山纜車 & 新日本三大夜景': '皿倉山纜車 (皿倉山展望台)',
+  '入住 ホテルサードプレイス博多 (Hotel 3rd Place Hakata)': 'ホテルサードプレイス博多',
   '入住 HOTEL CROWN PALAIS KOKURA (小倉皇冠宮)': 'HOTEL CROWN PALAIS KOKURA',
 
   // Day 6
@@ -48,6 +51,7 @@ const SPOT_CLEAN_MAP: Record<string, string> = {
   '吞山觀音寺 (Nomiyama Kannonji)': '吞山觀音寺',
   '石藏酒造 博多百年藏 (Ishikura Shuzo)': '石藏酒造 (博多百年藏)',
   '福岡動漫扭蛋一番賞自由行特輯': '博多運河城 / 天神動漫商場',
+  '入住 相鉄グランドフレッサ 熊本 (Sotetsu Grand Fressa Kumamoto)': '相鉄グランドフレッサ 熊本',
   '入住 Hotel Clio Court Hakata & 博多美食': 'Hotel Clio Court Hakata',
 
   // Day 7
@@ -66,6 +70,11 @@ const SPOT_CLEAN_MAP: Record<string, string> = {
 
   // Hotels
   '南阿蘇 La Vista 溫泉飯店': 'ラビスタ南阿蘇',
+  '黑川溫泉 旅館湯本莊': '黑川溫泉 旅館湯本莊',
+  '別府溫泉 杉乃井大飯店': '別府溫泉 杉乃井飯店',
+  'コンフォートホテル 黒崎 (Comfort Hotel Kurosaki)': 'コンフォートホテル 黒崎',
+  'ホテルサードプレイス博多 (Hotel 3rd Place Hakata)': 'ホテルサードプレイス博多',
+  '相鉄グランドフレッサ 熊本 (Sotetsu Grand Fressa Kumamoto)': '相鉄グランドフレッサ 熊本',
   '由布院金鱗湖畔獨棟民宿 David No Yakata': 'David No Yakata 民宿',
   '北九州小倉皇冠宮飯店': 'HOTEL CROWN PALAIS KOKURA',
   '博多克里歐庭酒店': 'Hotel Clio Court Hakata',
