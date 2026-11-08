@@ -16,9 +16,9 @@ import { ChecklistsView } from './components/ChecklistsView';
 import { TravelInfoView } from './components/TravelInfoView';
 
 export default function App() {
-  // Storage key versioned to force sync of Saturday 11/14 and updated 11/17-11/19 hotels
-  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261117_hotels';
-  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261117_hotels';
+  // Storage key versioned to force sync of 11/20 & 11/21 updated timelines
+  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261120_amakusa_kuradake';
+  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261120_amakusa';
 
   // Load state from localStorage or initialize with master seed data
   const [days, setDays] = useState<DaySchedule[]>(() => {
@@ -29,8 +29,12 @@ export default function App() {
         if (
           Array.isArray(parsed) &&
           parsed[0]?.weekday === '週六' &&
-          parsed[0]?.spots?.[0]?.time === '07:30' &&
-          parsed[3]?.spots?.some(s => s.name.includes('黒崎'))
+          parsed[2]?.spots?.some(s => s.name.includes('由布まぶし')) &&
+          parsed[3]?.spots?.some(s => s.name.includes('皿倉山')) &&
+          parsed[4]?.spots?.some(s => s.name.includes('聖誕市集')) &&
+          parsed[5]?.spots?.some(s => s.name.includes('橋本')) &&
+          parsed[6]?.spots?.some(s => s.name.includes('倉岳神社') || s.name.includes('海床路')) &&
+          parsed[7]?.spots?.some(s => s.name.includes('還車') || s.name.includes('星巴克'))
         ) {
           return parsed;
         }
@@ -48,8 +52,8 @@ export default function App() {
         const parsed: HotelItem[] = JSON.parse(saved);
         if (
           Array.isArray(parsed) &&
-          parsed.some(h => h.name.includes('黒崎')) &&
-          parsed.some(h => h.name.includes('相鉄グランドフレッサ'))
+          parsed.some(h => h.name.includes('ETS INN')) &&
+          parsed.some(h => h.name.includes('黒崎'))
         ) {
           return parsed;
         }
@@ -99,17 +103,27 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_days_v3');
       localStorage.removeItem('kyushu_2026_days_v4');
       localStorage.removeItem('kyushu_2026_days_v20261114_sat');
+      localStorage.removeItem('kyushu_2026_days_v20261117_hotels');
+      localStorage.removeItem('kyushu_2026_days_v20261114_takachiho_aso');
+      localStorage.removeItem('kyushu_2026_days_v20261116_beppu_kurosaki');
+      localStorage.removeItem('kyushu_2026_days_v20261118_ets_hashimoto');
       localStorage.removeItem('kyushu_2026_hotels');
       localStorage.removeItem('kyushu_2026_hotels_v2');
       localStorage.removeItem('kyushu_2026_hotels_v3');
       localStorage.removeItem('kyushu_2026_hotels_v20261114_sat');
+      localStorage.removeItem('kyushu_2026_hotels_v20261117_hotels');
+      localStorage.removeItem('kyushu_2026_hotels_v20261116_suginoi_booking');
+      localStorage.removeItem('kyushu_2026_hotels_v20261118_ets_inn');
     } catch {}
 
-    // Check if days or hotels currently loaded on client need updating to the latest 11/17-11/19 hotels
-    if (days[0]?.weekday !== '週六' || !days[3]?.spots?.some(s => s.name.includes('黒崎'))) {
+    // Check if days currently loaded on client need updating to the latest 11/20 & 11/21 timelines
+    if (
+      !days[6]?.spots?.some(s => s.name.includes('倉岳神社')) ||
+      !days[7]?.spots?.some(s => s.name.includes('還車'))
+    ) {
       setDays(INITIAL_DAYS);
     }
-    if (!hotels.some(h => h.name.includes('黒崎')) || !hotels.some(h => h.name.includes('相鉄グランドフレッサ'))) {
+    if (!hotels.some(h => h.name.includes('And COMFY'))) {
       setHotels(INITIAL_HOTELS);
     }
   }, []);
