@@ -74,6 +74,8 @@ export const INITIAL_HOTELS: HotelItem[] = [
       '必吃：一泊二食超豪華多國料理自助百匯晚餐，現切黑毛和牛牛排、現切生魚片海鮮丼、大分名物唐揚雞與精緻甜點吃到飽；翌晨超人氣朝食百匯'
     ],
     notes: '【訂房備註】一間透過 Agoda 訂房，另一間透過官網訂房。含豪華百匯晚餐與早餐。棚湯清晨日出視野絕美，建議早起 06:00 邊泡湯邊看別府灣晨曦破曉！',
+    attachmentImageUrl: '/assets/aistudio/_______7aa3f771.png',
+    attachmentTitle: '別府溫泉預定 (杉乃井星館)',
     mapCoord: { x: 62, y: 41 }
   },
   {
@@ -215,6 +217,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【租車取車】租車地點為「ニコニコレンタカー 熊本空港店」，事先填妥 Visit Japan Web 入境與海關申報 QR Code 加快通關；取車完成後隨即出發開往高千穗。',
         location: 'ニコニコレンタカー 熊本空港店 熊本県菊池郡菊陽町',
         reviewQuery: 'ニコニコレンタカー 熊本空港店 租車 取車 流程',
+        attachmentImageUrl: '/assets/aistudio/klook___7bb9b22c.png',
+        attachmentTitle: 'Klook 租車確認單與接駁指引',
         mapCoord: { x: 37, y: 54 }
       },
       {
@@ -449,6 +453,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【設施亮點】居高臨下泡在「大空之湯 / 棚湯」五層梯田式露天溫泉俯瞰別府百萬夜景；晚餐後 20:00 前往「THE AQUA GARDEN」觀看震撼雷射水舞秀！',
         location: '別府温泉 杉乃井ホテル 大分県別府市観海寺1',
         reviewQuery: '別府 杉乃井ホテル 棚湯 水舞秀 自助餐評價',
+        attachmentImageUrl: '/assets/aistudio/_______7aa3f771.png',
+        attachmentTitle: '別府溫泉預定 (杉乃井星館)',
         mapCoord: { x: 62, y: 41 }
       }
     ]

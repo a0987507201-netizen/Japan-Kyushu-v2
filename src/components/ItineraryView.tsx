@@ -16,7 +16,9 @@ import {
   CloudSun,
   Leaf,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  Image as ImageIcon,
+  X
 } from 'lucide-react';
 import { DaySchedule, HotelItem, SpotItem } from '../types/travel';
 import { SpotEditModal } from './SpotEditModal';
@@ -38,6 +40,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
 }) => {
   const [editingSpot, setEditingSpot] = useState<SpotItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [previewImage, setPreviewImage] = useState<{ url: string; title: string } | null>(null);
 
   const getCategoryIcon = (category: SpotItem['category']) => {
     switch (category) {
@@ -205,7 +208,20 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                   <span className="truncate">{spot.location}</span>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 flex-wrap">
+                  {spot.attachmentImageUrl && (
+                    <button
+                      onClick={() => setPreviewImage({
+                        url: spot.attachmentImageUrl!,
+                        title: spot.attachmentTitle || `${spot.name} 相關圖片`
+                      })}
+                      className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-blue-700 bg-blue-50 hover:bg-blue-100/90 rounded-lg border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95"
+                    >
+                      <ImageIcon className="w-3 h-3 text-blue-600" />
+                      <span>{spot.attachmentTitle || '查看圖片'}</span>
+                    </button>
+                  )}
+
                   {spot.reviewQuery && (
                     <button
                       onClick={() => openReviews(spot.reviewQuery!)}
@@ -274,13 +290,28 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                 <p className="text-xs text-slate-500 font-mono mt-0.5">{hotel.jpName}</p>
               </div>
 
-              <button
-                onClick={() => openGoogleMaps(hotel.address)}
-                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-amber-900 bg-amber-100/80 hover:bg-amber-200 rounded-xl border border-amber-300/80 transition-colors shrink-0 shadow-2xs"
-              >
-                <Navigation className="w-3 h-3 text-amber-700" />
-                <span>飯店導航</span>
-              </button>
+              <div className="flex items-center gap-1.5 shrink-0">
+                {hotel.attachmentImageUrl && (
+                  <button
+                    onClick={() => setPreviewImage({
+                      url: hotel.attachmentImageUrl!,
+                      title: hotel.attachmentTitle || `${hotel.name} 預訂確認單`
+                    })}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95"
+                  >
+                    <ImageIcon className="w-3 h-3 text-blue-600" />
+                    <span>{hotel.attachmentTitle || '預訂單'}</span>
+                  </button>
+                )}
+
+                <button
+                  onClick={() => openGoogleMaps(hotel.address)}
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-amber-900 bg-amber-100/80 hover:bg-amber-200 rounded-xl border border-amber-300/80 transition-colors shrink-0 shadow-2xs"
+                >
+                  <Navigation className="w-3 h-3 text-amber-700" />
+                  <span>飯店導航</span>
+                </button>
+              </div>
             </div>
 
             {/* Check-in / Out Time Badges */}
@@ -354,6 +385,61 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
         onSave={handleSaveSpot}
         onDelete={(spotId) => onDeleteSpot(day.id, spotId)}
       />
+
+      {/* Attachment Image Preview Modal with Close Button (叉叉) */}
+      {previewImage && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 bg-black/75 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setPreviewImage(null)}
+        >
+          <div
+            className="relative max-w-lg w-full max-h-[90vh] flex flex-col bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-[#FAF4F0] border-b border-[#EADBCE]">
+              <div className="flex items-center gap-2">
+                <span className="p-1 rounded-lg bg-blue-100 text-blue-700">
+                  <ImageIcon className="w-4 h-4" />
+                </span>
+                <h3 className="text-sm font-bold text-slate-800 truncate">
+                  {previewImage.title}
+                </h3>
+              </div>
+              <button
+                onClick={() => setPreviewImage(null)}
+                aria-label="關閉圖片"
+                className="p-1.5 rounded-full text-slate-500 hover:text-slate-800 hover:bg-slate-200/70 transition-colors cursor-pointer"
+                title="關閉"
+              >
+                <X className="w-5 h-5 stroke-[2.5]" />
+              </button>
+            </div>
+
+            {/* Modal Body / Image display */}
+            <div className="flex-1 overflow-y-auto p-2 bg-slate-900/5 flex items-center justify-center">
+              <img
+                src={previewImage.url}
+                alt={previewImage.title}
+                className="max-h-[75vh] w-auto object-contain rounded-lg shadow-sm"
+              />
+            </div>
+
+            {/* Modal Footer */}
+            <div className="px-4 py-2.5 bg-white border-t border-slate-100 flex items-center justify-between">
+              <span className="text-[11px] text-slate-500">
+                點擊右上角叉叉或背景即可關閉
+              </span>
+              <button
+                onClick={() => setPreviewImage(null)}
+                className="px-3.5 py-1 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition-colors cursor-pointer"
+              >
+                關閉
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
