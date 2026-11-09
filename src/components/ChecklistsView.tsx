@@ -319,22 +319,38 @@ export const ChecklistsView: React.FC<ChecklistsViewProps> = ({
           </div>
         </div>
 
-        <div className="text-xs text-slate-600 space-y-1.5 leading-relaxed bg-white/70 p-3 rounded-2xl border border-[#EDE2D8]">
-          <div className="flex items-start gap-1.5">
-            <span className="text-emerald-700 font-bold">1. 洋蔥式穿搭：</span>
-            <span>室內與車內均有暖氣，內著吸濕排汗發熱衣，中層穿衛衣或毛衣，外層備防風保暖外套。</span>
+        <div className="text-xs text-slate-600 space-y-2.5 leading-relaxed bg-white/80 p-3.5 rounded-2xl border border-[#EDE2D8]">
+          <div className="flex items-start gap-2.5">
+            <span className="w-36 shrink-0 font-bold text-emerald-800 text-xs">
+              1. 洋蔥式穿搭：
+            </span>
+            <span className="flex-1 text-slate-700 leading-relaxed">
+              室內與車內均有暖氣，內著吸濕排汗發熱衣，中層穿衛衣或毛衣，外層備防風保暖外套。
+            </span>
           </div>
-          <div className="flex items-start gap-1.5">
-            <span className="text-emerald-700 font-bold">2. 山區防風配件：</span>
-            <span>別府纜車山頂 (1375m)、大觀峰與皿倉山夜景風大，務必攜帶圍巾、手套與毛帽。</span>
+          <div className="flex items-start gap-2.5">
+            <span className="w-36 shrink-0 font-bold text-emerald-800 text-xs">
+              2. 山區防風配件：
+            </span>
+            <span className="flex-1 text-slate-700 leading-relaxed">
+              別府纜車山頂 (1375m)、大觀峰與皿倉山夜景風大，務必攜帶圍巾、手套與毛帽。
+            </span>
           </div>
-          <div className="flex items-start gap-1.5">
-            <span className="text-emerald-700 font-bold">3. 自駕行車小物：</span>
-            <span>準備車用手機磁吸導航架、雙孔車用充電頭與太陽眼鏡 (晨曦與傍晚逆光自駕必備)。</span>
+          <div className="flex items-start gap-2.5">
+            <span className="w-36 shrink-0 font-bold text-emerald-800 text-xs">
+              3. 自駕行車小物：
+            </span>
+            <span className="flex-1 text-slate-700 leading-relaxed">
+              準備車用手機磁吸導航架、雙孔車用充電頭與太陽眼鏡 (晨曦與傍晚逆光自駕必備)。
+            </span>
           </div>
-          <div className="flex items-start gap-1.5">
-            <span className="text-emerald-700 font-bold">4. 護照駕照放隨身包：</span>
-            <span>台灣駕照正本與日文譯本正本務必隨身攜帶，不可放在托運行李內。</span>
+          <div className="flex items-start gap-2.5">
+            <span className="w-36 shrink-0 font-bold text-emerald-800 text-xs">
+              4. 護照駕照放隨身包：
+            </span>
+            <span className="flex-1 text-slate-700 leading-relaxed">
+              台灣駕照正本與日文譯本正本務必隨身攜帶，不可放在托運行李內。
+            </span>
           </div>
         </div>
       </div>

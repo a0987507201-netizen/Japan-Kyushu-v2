@@ -1317,11 +1317,5 @@ export const INITIAL_MEMOS: MemoItem[] = [
     title: '動漫扭蛋一番賞地圖連結備忘',
     content: '天神 PARCO 官方樓層資訊：https://fukuoka.parco.jp/\n萬代 Namco Cross Store 博多運河城：https://bandainamco-am.co.jp/crossstore/\n駿河屋天神店位置備忘：https://www.suruga-ya.jp/',
     updatedAt: '2026-11-05 14:30'
-  },
-  {
-    id: 'memo-3',
-    title: '金鱗湖民宿壽喜燒料理備忘清單',
-    content: '11/17 下午在由布院 A-Coop 超市要買：\n- 大分豐後牛霜降牛肉片 2 盒\n- 日本在地大蔥、茼蒿、鮮香菇、金針菇\n- 烤豆腐 1 塊、蒟蒻絲 1 包\n- エバラ (Ebara) 壽喜燒黃金醬汁 1 瓶\n- 雞蛋 1 盒 (蘸熱牛肉吃超讚)\n- 讚岐烏龍麵 (最後收尾精華湯汁)',
-    updatedAt: '2026-11-05 15:10'
   }
 ];

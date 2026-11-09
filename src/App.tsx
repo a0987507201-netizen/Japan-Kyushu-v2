@@ -106,8 +106,14 @@ export default function App() {
 
   const [memos, setMemos] = useState<MemoItem[]>(() => {
     try {
-      const saved = localStorage.getItem('kyushu_2026_memos');
-      return saved ? JSON.parse(saved) : INITIAL_MEMOS;
+      const saved = localStorage.getItem('kyushu_2026_memos_v2');
+      if (saved) {
+        const parsed: MemoItem[] = JSON.parse(saved);
+        if (Array.isArray(parsed) && !parsed.some(m => m.title.includes('金鱗湖民宿'))) {
+          return parsed;
+        }
+      }
+      return INITIAL_MEMOS;
     } catch {
       return INITIAL_MEMOS;
     }
@@ -167,7 +173,12 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_hotels_v20261116_refined_maps_nav');
       localStorage.removeItem('kyushu_2026_days_v20261117_hakata_dazaifu_maps');
       localStorage.removeItem('kyushu_2026_hotels_v20261117_hakata_kumamoto_maps');
+      localStorage.removeItem('kyushu_2026_memos');
     } catch {}
+
+    if (memos.some(m => m.title.includes('金鱗湖民宿'))) {
+      setMemos(INITIAL_MEMOS);
+    }
 
     // Check if days currently loaded on client need updating to the latest spot titles and Day 1/8 title
     if (
@@ -237,7 +248,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('kyushu_2026_memos', JSON.stringify(memos));
+      localStorage.setItem('kyushu_2026_memos_v2', JSON.stringify(memos));
     } catch (e) {
       console.warn('LocalStorage save error:', e);
     }

@@ -294,11 +294,15 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
       {/* Tonight's Selected Hotel Accommodation Card */}
       {hotel && (
         <div className="mt-6 pt-2">
-          <div className="flex items-center gap-1.5 mb-2.5 px-1">
-            <span className="w-1.5 h-4 rounded-full bg-amber-600" />
-            <h3 className="text-sm font-bold text-slate-800">今晚精選旅宿</h3>
+          {/* Section Header with mealPlan & attached link/image beside it */}
+          <div className="flex items-center gap-2 mb-2.5 px-1 flex-wrap">
+            <div className="flex items-center gap-1.5 shrink-0">
+              <span className="w-1.5 h-4 rounded-full bg-amber-600" />
+              <h3 className="text-sm font-bold text-slate-800">今晚精選旅宿</h3>
+            </div>
+
             {hotel.mealPlan ? (
-              <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full ${
+              <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full shrink-0 ${
                 hotel.mealPlan.includes('二食')
                   ? 'bg-amber-100 text-amber-900 border border-amber-300'
                   : hotel.mealPlan.startsWith('純住宿') || hotel.mealPlan.includes('不含早餐')
@@ -316,54 +320,56 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                   : '純住宿'}
               </span>
             ) : (
-              <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-md">
+              <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-md shrink-0">
                 一泊享受
               </span>
+            )}
+
+            {/* Attachment Preview (e.g. 11/16 別府溫泉預定, 11/20 And COMFY 飯店停車場) beside mealPlan */}
+            {hotel.attachmentImageUrl && (
+              <button
+                onClick={() => setPreviewImage({
+                  url: hotel.attachmentImageUrl!,
+                  title: hotel.attachmentTitle || `${hotel.name} 相關圖片`
+                })}
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-full border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95 shrink-0"
+              >
+                <ImageIcon className="w-3 h-3 text-blue-600" />
+                <span>{hotel.attachmentTitle || '預訂單'}</span>
+              </button>
+            )}
+
+            {/* External Link (e.g. 11/19 飯店停車場 PDF) beside mealPlan */}
+            {hotel.externalLinkUrl && (
+              <a
+                href={hotel.externalLinkUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-full border border-emerald-200 transition-colors shadow-2xs active:scale-95 shrink-0"
+              >
+                <FileText className="w-3 h-3 text-emerald-600" />
+                <span>{hotel.externalLinkTitle || '停車場指引'}</span>
+                <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
+              </a>
             )}
           </div>
 
           <div className="glass-card rounded-3xl p-4 bg-gradient-to-br from-[#FFFDF9] via-[#FAF6F0] to-[#F5ECE4] border border-[#E5DACF] shadow-sm">
-            <div className="flex items-start justify-between gap-2">
-              <div>
-                <span className="text-[10px] font-bold text-amber-800 tracking-wider uppercase">
-                  Accomodation
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0 flex-1">
+                <span className="text-[10px] font-bold text-amber-800 tracking-wider uppercase block">
+                  Accommodation
                 </span>
-                <h4 className="text-sm font-bold text-slate-800 mt-0.5 leading-snug">
+                <h4 className="text-sm font-bold text-slate-800 mt-0.5 leading-snug whitespace-nowrap overflow-x-auto no-scrollbar">
                   {hotel.name}
                 </h4>
-                <p className="text-xs text-slate-500 font-mono mt-0.5">{hotel.jpName}</p>
+                <p className="text-xs text-slate-500 font-mono mt-0.5 truncate">{hotel.jpName}</p>
               </div>
 
               <div className="flex items-center gap-1.5 shrink-0">
-                {hotel.attachmentImageUrl && (
-                  <button
-                    onClick={() => setPreviewImage({
-                      url: hotel.attachmentImageUrl!,
-                      title: hotel.attachmentTitle || `${hotel.name} 預訂確認單`
-                    })}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-xl border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95"
-                  >
-                    <ImageIcon className="w-3 h-3 text-blue-600" />
-                    <span>{hotel.attachmentTitle || '預訂單'}</span>
-                  </button>
-                )}
-
-                {hotel.externalLinkUrl && (
-                  <a
-                    href={hotel.externalLinkUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-xl border border-emerald-200 transition-colors shadow-2xs active:scale-95"
-                  >
-                    <FileText className="w-3 h-3 text-emerald-600" />
-                    <span>{hotel.externalLinkTitle || '停車場指引'}</span>
-                    <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
-                  </a>
-                )}
-
                 <button
                   onClick={() => openGoogleMaps(hotel.mapUrl || hotel.address)}
-                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-amber-900 bg-amber-100/80 hover:bg-amber-200 rounded-xl border border-amber-300/80 transition-colors shrink-0 shadow-2xs"
+                  className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-amber-900 bg-amber-100/80 hover:bg-amber-200 rounded-xl border border-amber-300/80 transition-colors shrink-0 shadow-2xs cursor-pointer active:scale-95"
                 >
                   <Navigation className="w-3 h-3 text-amber-700" />
                   <span>飯店導航</span>
