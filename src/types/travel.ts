@@ -15,6 +15,8 @@ export interface SpotItem {
   reviewQuery?: string;
   attachmentImageUrl?: string;
   attachmentTitle?: string;
+  externalLinkUrl?: string;
+  externalLinkTitle?: string;
   mapCoord: { x: number; y: number }; // percentage 0-100 on Kyushu map
 }
 
@@ -33,6 +35,8 @@ export interface HotelItem {
   notes?: string;
   attachmentImageUrl?: string;
   attachmentTitle?: string;
+  externalLinkUrl?: string;
+  externalLinkTitle?: string;
   mapCoord: { x: number; y: number };
 }
 

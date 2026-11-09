@@ -18,6 +18,7 @@ import {
   CheckCircle2,
   AlertCircle,
   Image as ImageIcon,
+  FileText,
   X
 } from 'lucide-react';
 import { DaySchedule, HotelItem, SpotItem } from '../types/travel';
@@ -222,6 +223,19 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                     </button>
                   )}
 
+                  {spot.externalLinkUrl && (
+                    <a
+                      href={spot.externalLinkUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition-colors shadow-2xs active:scale-95"
+                    >
+                      <FileText className="w-3 h-3 text-emerald-600" />
+                      <span>{spot.externalLinkTitle || '查看連結'}</span>
+                      <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
+                    </a>
+                  )}
+
                   {spot.reviewQuery && (
                     <button
                       onClick={() => openReviews(spot.reviewQuery!)}
@@ -302,6 +316,19 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                     <ImageIcon className="w-3 h-3 text-blue-600" />
                     <span>{hotel.attachmentTitle || '預訂單'}</span>
                   </button>
+                )}
+
+                {hotel.externalLinkUrl && (
+                  <a
+                    href={hotel.externalLinkUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-xl border border-emerald-200 transition-colors shadow-2xs active:scale-95"
+                  >
+                    <FileText className="w-3 h-3 text-emerald-600" />
+                    <span>{hotel.externalLinkTitle || '停車場指引'}</span>
+                    <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
+                  </a>
                 )}
 
                 <button

@@ -152,7 +152,9 @@ export const INITIAL_HOTELS: HotelItem[] = [
       '必體驗：全館 SOU-BI-SUI 淨水系統沐浴體驗，水質溫潤親膚，泡澡徹底洗淨旅行疲憊',
       '必玩必逛周邊：位於熊本最核心的「下通商店街」內！出飯店門口即是熱鬧商店街，藥妝店、唐吉訶德、鶴屋百貨步行可達，晚餐直接品嚐「菅乃屋」頂級馬肉料理或「黑亭拉麵」'
     ],
-    notes: '入住時間 15:00、退房時間 11:00。含精緻早餐。出飯店即是下通商店街，逛街覓食絕佳地點。',
+    notes: '入住時間 15:00、退房時間 11:00。含精緻早餐。出飯店即是下通商店街，逛街覓食絕佳地點。停車指引可點擊按鈕查看官方停車場 PDF。',
+    externalLinkUrl: 'https://sotetsu-hotels.com/grand-fresa/datas/media/kumamoto/kumamoto_parking.pdf',
+    externalLinkTitle: '飯店停車場 PDF',
     mapCoord: { x: 36, y: 53 }
   },
   {
@@ -167,6 +169,7 @@ export const INITIAL_HOTELS: HotelItem[] = [
     mealPlan: '純住宿',
     services: [
       '熊本城第一排景觀位置、現代文青簡約設計質感',
+      '提攜停車場及近鄰停車場導覽指引（トラストパーク、アンピール等）',
       '1樓 24小時休憩大廳提供免費手沖現磨咖啡與熊本在地名茶',
       '客房席夢思頂級名床、加濕空氣清淨機、乾濕分離衛浴',
       '投幣式洗衣機、全館高速 Wi-Fi、立體停車場 (附設充電樁)'
@@ -176,7 +179,9 @@ export const INITIAL_HOTELS: HotelItem[] = [
       '必逛：步行 5 分鐘抵達熱鬧的上通、下通商店街與鶴屋百貨',
       '必吃：晚餐造訪百年老舖「菅乃屋 銀座通り店」品嚐頂級霜降馬肉刺身與熊本黑亭拉麵'
     ],
-    notes: '隔天 09:00 退房前往機場前，可於早晨 08:30 先至加藤神社拍攝晨光下的熊本城全貌。',
+    notes: '隔天 09:00 退房前往機場前，可於早晨 08:30 先至加藤神社拍攝晨光下的熊本城全貌。停車場導覽可點擊查看指引圖。',
+    attachmentImageUrl: '/assets/aistudio/_____And_COMFY_______e226a5d7.png',
+    attachmentTitle: 'And COMFY 飯店停車場',
     mapCoord: { x: 36, y: 53 }
   }
 ];
@@ -751,6 +756,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【品味推薦】橋本的多蜜醬醇厚回甘帶有深邃黑巧克與紅酒香氣，搭配現烤法式麵包沾醬享用堪稱極品滋味。',
         location: '洋食の店 橋本 熊本県熊本市中央区水道町4-1',
         reviewQuery: '洋食の店 橋本 熊本 米其林 漢堡排 食記',
+        attachmentImageUrl: '/assets/aistudio/_______e5c6c347.png',
+        attachmentTitle: '洋食の店 橋本 預訂單',
         mapCoord: { x: 36, y: 53 }
       },
       {
@@ -759,9 +766,11 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '入住 相鉄グランドフレッサ 熊本',
         category: 'hotel',
         notes: '晚餐後前往飯店辦理入住放行李。飯店坐落於熊本核心「下通商店街」內！全館導入「SOU-BI-SUI」全館淨水活水系統、備品自由吧與舒適名床。住宿含翌晨豐盛熊本鄉土旬味朝食百匯！',
-        tips: '【夜巡商圈】出飯店大門即是熱鬧非凡的下通拱廊商圈、上通商店街與鶴屋百貨，晚上可盡情逛藥妝、唐吉訶德或買熊本熊限定伴手禮。',
+        tips: '【夜巡商圈】出飯店大門即是熱鬧非凡的下通拱廊商圈、上通商店街與鶴屋百貨，晚上可盡情逛藥妝、唐吉訶德或買熊本熊限定伴手禮。停車可點擊按鈕查看官方 PDF。',
         location: '相鉄グランドフレッサ 熊本 熊本県熊本市中央区下通2丁目2-23',
         reviewQuery: '相鉄グランドフレッサ 熊本 住宿評價',
+        externalLinkUrl: 'https://sotetsu-hotels.com/grand-fresa/datas/media/kumamoto/kumamoto_parking.pdf',
+        externalLinkTitle: '飯店停車場 PDF',
         mapCoord: { x: 36, y: 53 }
       }
     ]
@@ -831,10 +840,12 @@ export const INITIAL_DAYS: DaySchedule[] = [
         time: '18:30',
         name: '入住 熊本城景 And COMFY 飯店',
         category: 'hotel',
-        notes: '返回熊本市區辦理入住放行李。飯店坐落於熊本市中心城東町，面對熊本城天守閣第一排無敵景觀！1樓 24 小時休憩大廳提供免費手沖現磨咖啡，客房備有席夢思頂級床墊與加濕空氣清淨機。',
+        notes: '返回熊本市區辦理入住放行李。飯店坐落於熊本市中心城東町，面對熊本城天守閣第一排無敵景觀！1樓 24 小時休憩大廳提供免費手沖現磨咖啡，客房備有席夢思頂級床墊與加濕空氣清淨機。停車導覽請點擊查看「And COMFY 飯店停車場」指引圖。',
         tips: '【入住便利】步行 5 分鐘即達熱鬧的下通商店街與今晚預約的菅乃屋銀座通り店，位置極其便捷。',
         location: 'And COMFY HOTEL Kumamoto Jo View 熊本市中央区城東町5-3',
         reviewQuery: 'And COMFY HOTEL Kumamoto Jo View 住宿評價',
+        attachmentImageUrl: '/assets/aistudio/_____And_COMFY_______e226a5d7.png',
+        attachmentTitle: 'And COMFY 飯店停車場',
         mapCoord: { x: 36, y: 53 }
       },
       {

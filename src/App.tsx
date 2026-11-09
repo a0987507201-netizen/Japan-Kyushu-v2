@@ -16,9 +16,9 @@ import { ChecklistsView } from './components/ChecklistsView';
 import { TravelInfoView } from './components/TravelInfoView';
 
 export default function App() {
-  // Storage key versioned to force sync of parking info, Klook image and Suginoi reservation image
-  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261116_suginoi_res_image';
-  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261116_suginoi_res_image';
+  // Storage key versioned to force sync of parking info, attachments and PDF links
+  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261120_parking_assets';
+  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261120_parking_assets';
 
   // Load state from localStorage or initialize with master seed data
   const [days, setDays] = useState<DaySchedule[]>(() => {
@@ -36,7 +36,9 @@ export default function App() {
           parsed[3]?.spots?.some(s => s.name === '鶴見岳高空纜車') &&
           parsed[4]?.spots?.some(s => s.notes?.includes('エコロパーク 博多区堅粕第１')) &&
           parsed[5]?.spots?.some(s => s.name === '糸島 櫻井二見之浦 夫婦岩') &&
-          parsed[6]?.spots?.some(s => s.name === '倉岳神社') &&
+          parsed[5]?.spots?.some(s => s.name.includes('橋本') && s.attachmentImageUrl) &&
+          parsed[5]?.spots?.some(s => s.name.includes('相鉄') && s.externalLinkUrl) &&
+          parsed[6]?.spots?.some(s => s.name.includes('COMFY') && s.attachmentImageUrl) &&
           parsed[7]?.spots?.some(s => s.name === '早餐：星巴克') &&
           parsed[7]?.title === '星巴克早餐、華航CI199熊本返回高雄'
         ) {
@@ -59,6 +61,8 @@ export default function App() {
           parsed.some(h => h.name.includes('ETS INN')) &&
           parsed.some(h => h.name.includes('黒崎')) &&
           parsed.find(h => h.id === 'hotel-1120')?.mealPlan === '純住宿' &&
+          parsed.find(h => h.id === 'hotel-1120')?.attachmentImageUrl &&
+          parsed.find(h => h.id === 'hotel-1119')?.externalLinkUrl &&
           parsed.find(h => h.id === 'hotel-1116')?.attachmentImageUrl
         ) {
           return parsed;
@@ -121,6 +125,8 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_days_v20261114_niconico_title');
       localStorage.removeItem('kyushu_2026_days_v20261118_parking_notes');
       localStorage.removeItem('kyushu_2026_days_v20261114_klook_image');
+      localStorage.removeItem('kyushu_2026_days_v20261116_suginoi_res_image');
+      localStorage.removeItem('kyushu_2026_days_v20261119_hashimoto_res_image');
       localStorage.removeItem('kyushu_2026_hotels');
       localStorage.removeItem('kyushu_2026_hotels_v2');
       localStorage.removeItem('kyushu_2026_hotels_v3');
@@ -135,6 +141,8 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_hotels_v20261114_niconico_title');
       localStorage.removeItem('kyushu_2026_hotels_v20261118_parking_notes');
       localStorage.removeItem('kyushu_2026_hotels_v20261114_klook_image');
+      localStorage.removeItem('kyushu_2026_hotels_v20261116_suginoi_res_image');
+      localStorage.removeItem('kyushu_2026_hotels_v20261119_hashimoto_res_image');
     } catch {}
 
     // Check if days currently loaded on client need updating to the latest spot titles and Day 1/8 title
@@ -146,7 +154,9 @@ export default function App() {
       !days[3]?.spots?.some(s => s.name === '鶴見岳高空纜車') ||
       !days[4]?.spots?.some(s => s.notes?.includes('エコロパーク 博多区堅粕第１')) ||
       !days[5]?.spots?.some(s => s.name === '糸島 櫻井二見之浦 夫婦岩') ||
-      !days[6]?.spots?.some(s => s.name === '倉岳神社') ||
+      !days[5]?.spots?.some(s => s.name.includes('橋本') && s.attachmentImageUrl) ||
+      !days[5]?.spots?.some(s => s.name.includes('相鉄') && s.externalLinkUrl) ||
+      !days[6]?.spots?.some(s => s.name.includes('COMFY') && s.attachmentImageUrl) ||
       !days[7]?.spots?.some(s => s.name === '早餐：星巴克') ||
       days[7]?.title !== '星巴克早餐、華航CI199熊本返回高雄'
     ) {
@@ -154,6 +164,8 @@ export default function App() {
     }
     if (
       hotels.find(h => h.id === 'hotel-1120')?.mealPlan !== '純住宿' ||
+      !hotels.find(h => h.id === 'hotel-1120')?.attachmentImageUrl ||
+      !hotels.find(h => h.id === 'hotel-1119')?.externalLinkUrl ||
       !hotels.find(h => h.id === 'hotel-1118')?.notes?.includes('エコロパーク 博多区堅粕第１') ||
       !hotels.find(h => h.id === 'hotel-1116')?.attachmentImageUrl
     ) {
