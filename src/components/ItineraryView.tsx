@@ -81,7 +81,9 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
   };
 
   const openGoogleMaps = (query: string) => {
-    const url = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+    const url = query.startsWith('http://') || query.startsWith('https://')
+      ? query
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -203,57 +205,85 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
               )}
 
               {/* Action Buttons: Google Maps & Food Reviews */}
-              <div className="mt-3 pt-2.5 border-t border-[#F0E6DE] flex items-center justify-between flex-wrap gap-2">
-                <div className="flex items-center gap-1.5 text-[11px] text-slate-400 truncate max-w-[170px]">
-                  <MapPin className="w-3 h-3 shrink-0 text-slate-400" />
-                  <span className="truncate">{spot.location}</span>
-                </div>
+              <div className="mt-3 pt-2.5 border-t border-[#F0E6DE] space-y-2">
+                {/* Sub-locations multiple Google Maps buttons (e.g. 11/15 restaurants, Kusasenri, Kurokawa) */}
+                {spot.subLocations && spot.subLocations.length > 0 && (
+                  <div className="bg-gradient-to-r from-amber-50/60 to-orange-50/40 p-2.5 rounded-xl border border-amber-200/80">
+                    <span className="text-[11px] font-bold text-amber-900 block mb-1.5">
+                      📍 地點與名物個別導航 (點擊開啟 Google Maps)：
+                    </span>
+                    <div className="grid grid-cols-2 gap-1.5">
+                      {spot.subLocations.map((sub, sIdx) => (
+                        <button
+                          key={sIdx}
+                          onClick={() => openGoogleMaps(sub.location)}
+                          className="inline-flex items-center justify-between px-2.5 py-1.5 text-[11px] font-medium text-[#C86D56] bg-white hover:bg-[#FDF6F3] rounded-lg border border-[#ECD9CE] transition-all shadow-2xs text-left group/sub active:scale-95 cursor-pointer"
+                        >
+                          <div className="flex items-center gap-1 truncate">
+                            <Navigation className="w-3 h-3 text-[#C86D56] shrink-0" />
+                            <span className="truncate font-semibold">{sub.name}</span>
+                          </div>
+                          <ExternalLink className="w-2.5 h-2.5 text-slate-400 group-hover/sub:text-[#C86D56] shrink-0 ml-1" />
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
-                <div className="flex items-center gap-2 flex-wrap">
-                  {spot.attachmentImageUrl && (
-                    <button
-                      onClick={() => setPreviewImage({
-                        url: spot.attachmentImageUrl!,
-                        title: spot.attachmentTitle || `${spot.name} 相關圖片`
-                      })}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-blue-700 bg-blue-50 hover:bg-blue-100/90 rounded-lg border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95"
-                    >
-                      <ImageIcon className="w-3 h-3 text-blue-600" />
-                      <span>{spot.attachmentTitle || '查看圖片'}</span>
-                    </button>
-                  )}
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400 truncate max-w-[170px]">
+                    <MapPin className="w-3 h-3 shrink-0 text-slate-400" />
+                    <span className="truncate">{spot.location}</span>
+                  </div>
 
-                  {spot.externalLinkUrl && (
-                    <a
-                      href={spot.externalLinkUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition-colors shadow-2xs active:scale-95"
-                    >
-                      <FileText className="w-3 h-3 text-emerald-600" />
-                      <span>{spot.externalLinkTitle || '查看連結'}</span>
-                      <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
-                    </a>
-                  )}
+                  <div className="flex items-center gap-2 flex-wrap">
+                    {spot.attachmentImageUrl && (
+                      <button
+                        onClick={() => setPreviewImage({
+                          url: spot.attachmentImageUrl!,
+                          title: spot.attachmentTitle || `${spot.name} 相關圖片`
+                        })}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-blue-700 bg-blue-50 hover:bg-blue-100/90 rounded-lg border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95"
+                      >
+                        <ImageIcon className="w-3 h-3 text-blue-600" />
+                        <span>{spot.attachmentTitle || '查看圖片'}</span>
+                      </button>
+                    )}
 
-                  {spot.reviewQuery && (
-                    <button
-                      onClick={() => openReviews(spot.reviewQuery!)}
-                      className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-amber-800 bg-amber-50 hover:bg-amber-100/80 rounded-lg border border-amber-200 transition-colors"
-                    >
-                      <Utensils className="w-3 h-3 text-amber-600" />
-                      <span>查看食記</span>
-                    </button>
-                  )}
+                    {spot.externalLinkUrl && (
+                      <a
+                        href={spot.externalLinkUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-lg border border-emerald-200 transition-colors shadow-2xs active:scale-95"
+                      >
+                        <FileText className="w-3 h-3 text-emerald-600" />
+                        <span>{spot.externalLinkTitle || '查看連結'}</span>
+                        <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
+                      </a>
+                    )}
 
-                  <button
-                    onClick={() => openGoogleMaps(spot.location)}
-                    className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-[#C86D56] bg-white hover:bg-[#F7EBE8] rounded-lg border border-[#EBDCD3] transition-colors shadow-2xs"
-                  >
-                    <Navigation className="w-3 h-3 text-[#C86D56]" />
-                    <span>Google Maps</span>
-                    <ExternalLink className="w-2.5 h-2.5 text-slate-400" />
-                  </button>
+                    {spot.reviewQuery && (
+                      <button
+                        onClick={() => openReviews(spot.reviewQuery!)}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-amber-800 bg-amber-50 hover:bg-amber-100/80 rounded-lg border border-amber-200 transition-colors"
+                      >
+                        <Utensils className="w-3 h-3 text-amber-600" />
+                        <span>查看食記</span>
+                      </button>
+                    )}
+
+                    {!spot.hideMainMapButton && (
+                      <button
+                        onClick={() => openGoogleMaps(spot.location)}
+                        className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-medium text-[#C86D56] bg-white hover:bg-[#F7EBE8] rounded-lg border border-[#EBDCD3] transition-colors shadow-2xs"
+                      >
+                        <Navigation className="w-3 h-3 text-[#C86D56]" />
+                        <span>{spot.mainMapTitle || (spot.subLocations ? '主要導航' : 'Google Maps')}</span>
+                        <ExternalLink className="w-2.5 h-2.5 text-slate-400" />
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -332,7 +362,7 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
                 )}
 
                 <button
-                  onClick={() => openGoogleMaps(hotel.address)}
+                  onClick={() => openGoogleMaps(hotel.mapUrl || hotel.address)}
                   className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium text-amber-900 bg-amber-100/80 hover:bg-amber-200 rounded-xl border border-amber-300/80 transition-colors shrink-0 shadow-2xs"
                 >
                   <Navigation className="w-3 h-3 text-amber-700" />

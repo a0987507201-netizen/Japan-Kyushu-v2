@@ -102,6 +102,7 @@ export const INITIAL_HOTELS: HotelItem[] = [
       '必吃必逛周邊：步行 3 分鐘即達 JR 黑崎站及黑崎商店街，周邊有福岡知名鐵鍋煎餃、炭火燒鳥居酒屋及拉麵名店，夜生活機能絕佳'
     ],
     notes: '住宿含免費早餐。1樓 Library Cafe 迎賓咖啡全天候供應。退房時間為 10:00。',
+    mapUrl: 'https://maps.app.goo.gl/mzTgSaQeYKswmgTW8',
     mapCoord: { x: 50, y: 19 }
   },
   {
@@ -128,6 +129,7 @@ export const INITIAL_HOTELS: HotelItem[] = [
       '必逛：直通博多車站商圈，AMU PLAZA、博多阪急百貨與地下街輕鬆逛街採買'
     ],
     notes: '入住時間 15:00、退房時間 10:00。預計在飯店附近停車，地址：エコロパーク 博多区堅粕第１ (自費)。鄰近博多站筑紫口，前往聖誕市集與中洲屋台街極為便利。',
+    mapUrl: 'https://maps.app.goo.gl/Zw7D1sNDMeEy9qJ39',
     mapCoord: { x: 38, y: 24 }
   },
   {
@@ -153,6 +155,7 @@ export const INITIAL_HOTELS: HotelItem[] = [
       '必玩必逛周邊：位於熊本最核心的「下通商店街」內！出飯店門口即是熱鬧商店街，藥妝店、唐吉訶德、鶴屋百貨步行可達，晚餐直接品嚐「菅乃屋」頂級馬肉料理或「黑亭拉麵」'
     ],
     notes: '入住時間 15:00、退房時間 11:00。含精緻早餐。出飯店即是下通商店街，逛街覓食絕佳地點。停車指引可點擊按鈕查看官方停車場 PDF。',
+    mapUrl: 'https://maps.app.goo.gl/taKU8FzEVAuxSLkM7',
     externalLinkUrl: 'https://sotetsu-hotels.com/grand-fresa/datas/media/kumamoto/kumamoto_parking.pdf',
     externalLinkTitle: '飯店停車場 PDF',
     mapCoord: { x: 36, y: 53 }
@@ -327,8 +330,27 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '午餐：いまきん食堂 / あか牛丼いわさき / 阿蘇はなびし / ニュー草千里',
         category: 'food',
         notes: '提早於 11:00 開門時前往阿蘇赤牛丼名店享用午餐！推薦名單：1. 內牧百年老店「いまきん食堂」2.「あか牛丼いわさき」3. 阿蘇神社門前町「阿蘇はなびし」4. 或前往草千里景觀餐廳「ニュー草千里」享用產地直送炙燒赤牛丼。',
-        tips: '【美食必嚐】特選阿蘇和牛炙燒後搭配半熟溫泉蛋與特調蒜香甜鹹醬汁，肉質鮮嫩無比，為阿蘇之旅注入滿滿元氣！',
-        location: 'お食事処 いまきん食堂 熊本県阿蘇市内牧290',
+        tips: '【美食必嚐】特選阿蘇和牛炙燒後搭配半熟溫泉蛋與特調蒜香甜鹹醬汁，肉質鮮嫩無比，為阿蘇之旅注入滿滿元氣！以下提供四家餐廳個別專屬 Google Maps 導航連結。',
+        location: 'いまきん食堂 / いわさき / 阿蘇はなびし / ニュー草千里',
+        hideMainMapButton: true,
+        subLocations: [
+          {
+            name: 'いまきん食堂',
+            location: 'いまきん食堂 熊本県阿蘇市内牧290'
+          },
+          {
+            name: 'あか牛丼いわさき',
+            location: 'あか牛丼 いわさき 熊本県阿蘇市乙姫2006-2'
+          },
+          {
+            name: '阿蘇はなびし',
+            location: '阿蘇はなびし 熊本県阿蘇市一の宮町宮地3093'
+          },
+          {
+            name: 'ニュー草千里',
+            location: 'ニュー草千里 熊本県阿蘇市赤水1930-1'
+          }
+        ],
         reviewQuery: 'いまきん食堂 あか牛丼いわさき 阿蘇はなびし ニュー草千里',
         mapCoord: { x: 44, y: 50 }
       },
@@ -338,8 +360,23 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '草千里 (草千里珈琲焙煎所 / 草千里騎馬俱樂部 / 山之驛物產館)',
         category: 'scenic',
         notes: '烏帽子岳與杵島岳之間的巨型火山口綠茵草原！漫步在雙重火口雨水池畔，可體驗「草千里騎馬俱樂部」策馬漫步於大草原，或造訪極簡文青風格的「草千里珈琲焙煎所」品嚐手沖單品咖啡，並至「山之驛物產館」採購火山特產。',
-        tips: '【拍照建議】在草千里珈琲焙煎所點一杯熱拿鐵，坐在大片落地窗前遠眺中岳火山口冉惹升起的白色火山蒸氣；或走到草原水池邊拍攝遠山如鏡面般的天空之鏡倒影。',
-        location: '草千里ヶ浜 / 草千里珈琲焙煎所 熊本県阿蘇市赤水1930-1',
+        tips: '【拍照建議】在草千里珈琲焙煎所點一杯熱拿鐵，坐在大片落地窗前遠眺中岳火山口冉惹升起的白色火山蒸氣；或走到草原水池邊拍攝遠山如鏡面般的天空之鏡倒影。以下提供各景點個別 Google Maps 導航連結。',
+        location: '草千里ヶ浜 熊本県阿蘇市赤水',
+        mainMapTitle: '草千里 Google Maps',
+        subLocations: [
+          {
+            name: '草千里珈琲焙煎所',
+            location: '草千里珈琲焙煎所 熊本県阿蘇市赤水1930-1'
+          },
+          {
+            name: '草千里騎馬俱樂部',
+            location: '草千里乗馬クラブ 熊本県阿蘇市赤水1930-1'
+          },
+          {
+            name: '山之驛物產館',
+            location: '阿蘇火山博物館 / 山の駅物産館 熊本県阿蘇市赤水1930-1'
+          }
+        ],
         reviewQuery: '草千里之濱 草千里珈琲焙煎所 騎馬體驗 山之驛',
         mapCoord: { x: 42, y: 53 }
       },
@@ -360,8 +397,31 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '黑川溫泉 (パティスリー 麓 / どらどら / 丸鈴橋 / 湯音 / 新明館的黑色橋)',
         category: 'food',
         notes: '抵達全日本首屈一指的秘湯「黑川溫泉」！漫步在保留江戶風貌的石疊小徑。必訪人氣名物與打卡點：1. パティスリー 麓 (現烤酥脆焦糖泡芙) 2. どらどら (大福銅鑼燒) 3. 丸鈴橋 (俯瞰田之原川與兩岸紅葉景觀) 4. 湯音 (小國生牛奶與極上布丁) 5. 新明館 (標誌性黑色木造古橋與紅葉燈籠)。',
-        tips: '【拍照指南】丸鈴橋是捕捉黑川溫泉經典全貌的最佳機位；新明館的黑色木橋配上日式燈籠與茅草屋頂，傍晚點燈時宛如走入神隱少女場景！',
-        location: '黒川温泉 熊本県阿蘇郡南小国町満願寺6594-3',
+        tips: '【拍照指南】丸鈴橋是捕捉黑川溫泉經典全貌的最佳機位；新明館的黑色木橋配上日式燈籠與茅草屋頂，傍晚點燈時宛如走入神隱少女場景！主要導航設定為「黒川温泉観光旅館協同組合 (風の舎)」，老街各名物景點亦提供專屬 Google Maps 導航連結。',
+        location: '黒川温泉 観光旅館協同組合 風の舎 熊本県阿蘇郡南小国町満願寺6594-3',
+        mainMapTitle: '黒川温泉 (風の舎) 導航',
+        subLocations: [
+          {
+            name: 'パティスリー 麓',
+            location: 'パティスリー 麓 熊本県阿蘇郡南小国町満願寺6610-1'
+          },
+          {
+            name: 'どらどら',
+            location: 'どらどら 熊本県阿蘇郡南小国町満願寺6610-2'
+          },
+          {
+            name: '丸鈴橋',
+            location: '丸鈴橋 熊本県阿蘇郡南小国町満願寺 黒川温泉'
+          },
+          {
+            name: '湯音',
+            location: 'https://maps.app.goo.gl/xDbBd51P1wU6hzM5A'
+          },
+          {
+            name: '新明館 (黑色橋)',
+            location: '黒川温泉 山の宿 新明館 熊本県阿蘇郡南小国町満願寺6608'
+          }
+        ],
         reviewQuery: '黑川溫泉 美食散策 パティスリー麓 どらどら 丸鈴橋 湯音 新明館',
         mapCoord: { x: 49, y: 48 }
       },
@@ -422,8 +482,30 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '湯之坪街道 (B-speak / ミルヒ / 花卉村 / 金賞可樂餅 / 今泉堂)',
         category: 'food',
         notes: '漫步由布院最具人氣的「湯之坪街道」！排隊名物巡禮：1. B-speak (經典生乳蛋糕捲，建議先買) 2. 由布院ミルヒ (Milch 半熟熱起司蛋糕與布丁) 3. Yufuin Floral Village 湯布院花卉村 (英倫柯茲窩童話小鎮與可愛動物) 4. 湯布院金賞コロッケ (外脆內熱牛肉可樂餅) 5. 今泉堂 (imaizumido 手工香甜生蕨餅)。【停車資訊】預計將車子停在「金麟湖入口停車場」，停妥後步行即可銜接金鱗湖與漫步湯之坪街道。',
-        tips: '【停車與排隊】預計車輛停放於「金麟湖入口停車場」，步行至湖畔與老街都很順暢；B-speak 蛋糕捲小條包裝數量有限極熱銷，抵達時可先購買；花卉村拍照極具童話夢幻感。',
+        tips: '【停車與排隊】預計車輛停放於「金麟湖入口停車場」，步行至湖畔與老街都很順暢；B-speak 蛋糕捲小條包裝數量有限極熱銷，抵達時可先購買；花卉村拍照極具童話夢幻感。以下提供各名物景點專屬 Google Maps 導航連結。',
         location: '湯の坪街道 / 金麟湖入口駐車場 大分県由布市湯布院町川上',
+        subLocations: [
+          {
+            name: 'B-speak (蛋糕捲)',
+            location: 'B-speak 大分県由布市湯布院町川上3040-2'
+          },
+          {
+            name: '由布院ミルヒ (Milch)',
+            location: '由布院ミルヒ 大分県由布市湯布院町川上3015-1'
+          },
+          {
+            name: '湯布院花卉村 (Floral Village)',
+            location: 'YUFUIN FLORAL VILLAGE 大分県由布市湯布院町川上1503-3'
+          },
+          {
+            name: '金賞可樂餅 (本店)',
+            location: '湯布院金賞コロッケ 本店 大分県由布市湯布院町川上1511-1'
+          },
+          {
+            name: '今泉堂 (imaizumido)',
+            location: '今泉堂 imaizumido 大分県由布市湯布院町川上940-2'
+          }
+        ],
         reviewQuery: '湯布院 湯之坪街道 金麟湖入口停車場 B-speak 由布院ミルヒ 金賞可樂餅',
         mapCoord: { x: 57, y: 44 }
       },
@@ -433,8 +515,19 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '午餐：由布まぶし「心」金鱗湖本店 / 山家料理 湯の岳庵',
         category: 'food',
         notes: '午餐享用由布院頂級名物釜飯料理！推薦名單：1. 由布まぶし「心」金鱗湖本店 (豐後牛、鰻魚、地雞三吃炭火陶鍋斧飯) 2. 龜之井別莊附設「山家料理 湯の岳庵」品嚐雅致鄉土旬味定食。',
-        tips: '【釜飯三吃秘訣】一吃品嚐炭烤肉香原味；二吃加入柚子胡椒與特製醃菜拌飯；三吃注入特調高湯做成鮮甜茶泡飯！',
+        tips: '【釜飯三吃秘訣】一吃品嚐炭烤肉香原味；二吃加入柚子胡椒與特製醃菜拌飯；三吃注入特調高湯做成鮮甜茶泡飯！以下提供兩間餐廳專屬 Google Maps 導航連結。',
         location: '由布まぶし 心 金鱗湖本店 大分県由布市湯布院町川上1492-1',
+        hideMainMapButton: true,
+        subLocations: [
+          {
+            name: '由布まぶし「心」金鱗湖本店',
+            location: '由布まぶし 心 金鱗湖本店 大分県由布市湯布院町川上1492-1'
+          },
+          {
+            name: '山家料理 湯の岳庵',
+            location: '山家料理 湯の岳庵 大分県由布市湯布院町川上2633-1'
+          }
+        ],
         reviewQuery: '由布まぶし 心 金鱗湖本店 湯の岳庵 食記 預約',
         mapCoord: { x: 58, y: 44 }
       },
@@ -444,8 +537,23 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '別府溫泉 (岡本屋賣店 / 湯霧展望台 / 別府百貨)',
         category: 'scenic',
         notes: '午後抵達別府溫泉市區！造訪：1. 明礬溫泉「岡本屋賣店」品嚐百年古法「元祖地獄蒸布丁」與地獄蒸蛋 2.「湯霧展望台 (湯けむり展望台)」俯瞰鐵輪溫泉蒸氣裊裊升空的日本百景震撼畫面 3. 前往「別府百貨 (Tokiwa 別府店)」採買大分特產香母酢 (Kabosu)、椎茸與伴手禮。',
-        tips: '【名物必吃】岡本屋地獄蒸布丁以純天然溫泉高溫蒸煮，口感極致滑嫩帶有微苦焦糖；湯霧展望台以長焦鏡頭壓縮蒸氣市街與別府灣層次感十足。',
-        location: '岡本屋売店 大分県別府市明礬3組 / 湯けむり展望台',
+        tips: '【名物必吃】岡本屋地獄蒸布丁以純天然溫泉高溫蒸煮，口感極致滑嫩帶有微苦焦糖；湯霧展望台以長焦鏡頭壓縮蒸氣市街與別府灣層次感十足。主要導航為別府溫泉，下方提供各景點專屬 Google Maps 導航連結。',
+        location: '別府温泉 鉄輪温泉 大分県別府市風呂本',
+        mainMapTitle: '別府溫泉 Google Maps',
+        subLocations: [
+          {
+            name: '岡本屋賣店 (地獄蒸布丁)',
+            location: '岡本屋売店 大分県別府市明礬3組'
+          },
+          {
+            name: '湯霧展望台 (湯けむり展望台)',
+            location: '湯けむり展望台 大分県別府市鉄輪8組'
+          },
+          {
+            name: '別府百貨 (Tokiwa別府店)',
+            location: 'トキハ別府店 大分県別府市北浜2丁目9-1'
+          }
+        ],
         reviewQuery: '岡本屋賣店 地獄蒸布丁 湯けむり展望台 別府百貨 Tokiwa',
         mapCoord: { x: 62, y: 39 }
       },
@@ -551,9 +659,20 @@ export const INITIAL_DAYS: DaySchedule[] = [
         time: '19:30',
         name: '晚餐：一蘭拉麵 / 黑崎站附近居酒屋',
         category: 'food',
-        notes: '下山後前往黑崎市區享用晚餐！推薦名單：1. 豚骨拉麵經典「一蘭拉麵」2. 或前往 JR 黑崎站商圈人氣炭火居酒屋、鐵鍋餃子名店品嚐道地九州宵夜與小酌。',
-        tips: '【美食推薦】皿倉山下來至黑崎商圈車程僅約 10~15 分鐘，停車便利，熱騰騰豚骨拉麵暖身過癮。',
-        location: '一蘭 太宰府/北九州店 或 JR黒崎駅前商店街',
+        notes: '下山後前往黑崎市區享用晚餐！推薦名單：1. 豚骨拉麵經典「一蘭拉麵 (黒崎店)」2. 或前往 JR 黑崎站商圈人氣炭火居酒屋、鐵鍋餃子名店品嚐道地九州宵夜與小酌。',
+        tips: '【美食推薦】皿倉山下來至黑崎商圈車程僅約 10~15 分鐘，停車便利，熱騰騰豚骨拉麵暖身過癮。以下提供黑崎一蘭拉麵與黑崎車站專屬 Google Maps 導航連結。',
+        location: '一蘭 黒崎店 / JR黒崎駅 福岡県北九州市八幡西区黒崎',
+        hideMainMapButton: true,
+        subLocations: [
+          {
+            name: '一蘭 黒崎店',
+            location: 'https://maps.app.goo.gl/p2Uwh7mSzd2kqB8a8'
+          },
+          {
+            name: 'JR 黑崎車站 (黒崎駅)',
+            location: '黒崎駅 福岡県北九州市八幡西区黒崎3丁目'
+          }
+        ],
         reviewQuery: '一蘭拉麵 黑崎 居酒屋 推薦',
         mapCoord: { x: 50, y: 20 }
       },
@@ -564,7 +683,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         category: 'hotel',
         notes: '辦理入住 コンフォートホテル 黒崎 (Comfort Hotel Kurosaki)。入住時間 15:00、退房時間 10:00。住宿含早餐。步行 3 分鐘即達 JR 黑崎站，交通極為便利。',
         tips: '【飯店貼心服務】1樓 Library Cafe 10:00~24:00 免費提供研磨熱咖啡與花草茶；客房備有 Comfort 專利快眠枕；翌晨享用免費健康朝食百匯。',
-        location: 'コンフォートホテル黒崎 福岡県北九州市八幡西区黒崎3-13-13',
+        location: 'https://maps.app.goo.gl/mzTgSaQeYKswmgTW8',
+        mainMapTitle: 'コンフォートホテル 黒崎 導航',
         reviewQuery: 'コンフォートホテル黒崎 評價 早餐',
         mapCoord: { x: 50, y: 19 }
       }
@@ -614,8 +734,19 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '午餐：食堂煮魚少年 / 博多もつ鍋 いちたか 博多本店',
         category: 'food',
         notes: '【備註午/晚餐推薦名單】：1.「食堂煮魚少年」博多超人氣煮魚定食名店，每日挑選當季鮮魚以特製甜鹹醬汁慢火煨煮入味 2.「博多もつ鍋 いちたか 博多本店」名物牛腸鍋，頂級牛腸配上鮮甜高麗菜與濃醇高湯。',
-        tips: '【美食必嚐】煮魚少年的紅燒鮮魚醬汁拌飯堪稱白飯小偷；いちたか牛腸鍋油脂甘甜不膩，收尾加拉麵最過癮。',
+        tips: '【美食必嚐】煮魚少年的紅燒鮮魚醬汁拌飯堪稱白飯小偷；いちたか牛腸鍋油脂甘甜不膩，收尾加拉麵最過癮。以下提供兩家餐廳專屬 Google Maps 導航連結。',
         location: '食堂 煮魚少年 / 博多もつ鍋 いちたか 博多本店',
+        hideMainMapButton: true,
+        subLocations: [
+          {
+            name: '食堂煮魚少年',
+            location: '食堂 煮魚少年 福岡県福岡市博多区住吉2丁目6-32'
+          },
+          {
+            name: '博多もつ鍋 いちたか 博多本店',
+            location: '博多もつ鍋 いちたか 博多本店 福岡県福岡市博多区博多駅東2丁目4-14'
+          }
+        ],
         reviewQuery: '食堂煮魚少年 博多もつ鍋 いちたか 博多本店 食記',
         mapCoord: { x: 38, y: 24 }
       },
@@ -637,7 +768,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         category: 'hotel',
         notes: '前往飯店辦理入住放行李。飯店坐落於 JR 博多站筑紫口步行僅 3 分鐘！交通位置極致便捷，下樓隨時能回房間放置購物戰利品。【停車資訊】預計在飯店附近停車，停車場地址：エコロパーク 博多区堅粕第１ (自費)。',
         tips: '【停車與地段優勢】預計於飯店周邊自費停車場「エコロパーク 博多区堅粕第１」停車；鄰近博多車站筑紫口，前往今晚的博多站前聖誕市集步行只需 3 分鐘。',
-        location: 'ホテル エイツイン 博多 (停車：エコロパーク 博多区堅粕第１) 福岡市博多区博多駅東1-7-18',
+        location: 'https://maps.app.goo.gl/Zw7D1sNDMeEy9qJ39',
+        mainMapTitle: 'Hotel ETS INN 博多 導航',
         reviewQuery: 'ホテル エイツイン 博多 エコロパーク 博多区堅粕第１ 停車場 住宿評價',
         mapCoord: { x: 38, y: 24 }
       },
@@ -699,7 +831,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         category: 'food',
         notes: '於糸島頂級超人氣海鮮名店「にぎり塚本鮮魚店」享用極上早餐！直通在地漁港新鮮直送，品嚐鋪滿鮮美旬魚、鮭魚卵與海膽的奢華海鮮丼，或師傅現點現捏的精品握壽司定食。',
         tips: '【美食必點】特上握壽司套餐與滿載海鮮丼性價比極高，魚肉厚實甜脆，鮮度無可挑剔！',
-        location: 'にぎり塚本鮮魚店 福岡県糸島市加布里',
+        location: 'https://maps.app.goo.gl/g1Rjgkao9LeseXoaA',
+        mainMapTitle: 'にぎり塚本鮮魚店 導航',
         reviewQuery: 'にぎり塚本鮮魚店 糸島 海鮮丼 握壽司 食記',
         mapCoord: { x: 30, y: 24 }
       },
@@ -731,8 +864,39 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '太宰府前表参道 (吃午餐 & 名物散策)',
         category: 'food',
         notes: '於太宰府熱鬧表參道享受美食午餐與必吃甜點巡禮！推薦名單：1. 天山 本店 (巨無霸甘王草莓大福最中) 2. やす武 (外酥內糯現烤梅枝餅) 3. おかき処 寺子屋本舗 (現烤手工仙貝串) 4. coba cafe (超人氣網美布丁與旬味鹹食定食) 5. 味の明太子ふくや (現烤明太子法式麵包) 6. toffee (質感豆乳甜品) 7. 筑紫庵漢堡 (太宰府名物炸雞肉漢堡)。',
-        tips: '【美食必嚐】剛烤出爐的梅枝餅外皮酥脆微焦、紅豆餡溫潤甜郁；天山草莓大福最中更是拍照打卡第一名。',
+        tips: '【美食必嚐】剛烤出爐的梅枝餅外皮酥脆微焦、紅豆餡溫潤甜郁；天山草莓大福最中更是拍照打卡第一名。以下提供表參道各大名物與人氣甜點專屬 Google Maps 導航連結。',
         location: '太宰府天満宮 表参道 福岡県太宰府市宰府',
+        mainMapTitle: '太宰府表參道 Google Maps',
+        subLocations: [
+          {
+            name: '天山 本店 (草莓大福最中)',
+            location: '太宰府参道 天山本店 福岡県太宰府市宰府2丁目7-12'
+          },
+          {
+            name: 'やす武 (梅枝餅)',
+            location: '梅ヶ枝餅 やす武 福岡県太宰府市宰府2丁目7-16'
+          },
+          {
+            name: 'おかき処 寺子屋本舗 (仙貝)',
+            location: '寺子屋本舗 太宰府店 福岡県太宰府市宰府3丁目1-21'
+          },
+          {
+            name: 'coba cafe',
+            location: 'coba cafe 福岡県太宰府市宰府3丁目2-35'
+          },
+          {
+            name: '味の明太子ふくや (太宰府店)',
+            location: '味の明太子ふくや 太宰府店 福岡県太宰府市宰府3丁目2-47'
+          },
+          {
+            name: 'toffee (TOFFEE dazaifu)',
+            location: 'TOFFEE dazaifu 福岡県太宰府市宰府3丁目2-46'
+          },
+          {
+            name: '筑紫庵漢堡 (太宰府バーガー)',
+            location: '筑紫庵 本店 福岡県太宰府市宰府3丁目2-2'
+          }
+        ],
         reviewQuery: '太宰府表參道 天山本店 やす武 coba cafe 筑紫庵漢堡',
         mapCoord: { x: 40, y: 29 }
       },
@@ -767,7 +931,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         category: 'hotel',
         notes: '晚餐後前往飯店辦理入住放行李。飯店坐落於熊本核心「下通商店街」內！全館導入「SOU-BI-SUI」全館淨水活水系統、備品自由吧與舒適名床。住宿含翌晨豐盛熊本鄉土旬味朝食百匯！',
         tips: '【夜巡商圈】出飯店大門即是熱鬧非凡的下通拱廊商圈、上通商店街與鶴屋百貨，晚上可盡情逛藥妝、唐吉訶德或買熊本熊限定伴手禮。停車可點擊按鈕查看官方 PDF。',
-        location: '相鉄グランドフレッサ 熊本 熊本県熊本市中央区下通2丁目2-23',
+        location: 'https://maps.app.goo.gl/taKU8FzEVAuxSLkM7',
+        mainMapTitle: '相鉄グランドフレッサ 熊本 導航',
         reviewQuery: '相鉄グランドフレッサ 熊本 住宿評價',
         externalLinkUrl: 'https://sotetsu-hotels.com/grand-fresa/datas/media/kumamoto/kumamoto_parking.pdf',
         externalLinkTitle: '飯店停車場 PDF',
@@ -884,7 +1049,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         category: 'food',
         notes: '早晨於熊本市區星巴克（如熊本城下町店或市區門市）解決早餐。點一杯香醇熱拿鐵、熱燕麥奶拿鐵配上外酥內軟的烤可頌、火腿起司三明治，從容悠閒地享受在九州的最後晨間時光。',
         tips: '【時間掌控】早餐後返回飯店完成隨身行李與戰利品打包整理，確認護照、駕照日文譯本與隨身貴重物品，準備 09:00 準時辦理退房。',
-        location: 'スターバックス コーヒー 熊本城下町店 / 熊本市中央区',
+        location: 'https://maps.app.goo.gl/kDxZ5t1qZ5k1Ug1SA',
+        mainMapTitle: '星巴克 導航',
         reviewQuery: '星巴克 熊本城下町店 早餐',
         mapCoord: { x: 36, y: 53 }
       },
@@ -895,7 +1061,8 @@ export const INITIAL_DAYS: DaySchedule[] = [
         category: 'car',
         notes: '【關鍵時間節點 09:00~09:45】09:00 準時自飯店辦理退房出發，開車行駛國道往熊本機場方向（車程約 30 分鐘）。抵達機場前於指定加油站「加滿油 (滿油還車並保留加油收據發票)」，09:40~09:45 抵達租車公司 (如 NICONICO 租車熊本機場店) 完成車輛外觀檢查與還車手續。',
         tips: '【還車清點必做】確實檢查後車廂、副駕手套箱、車充轉接頭、車載手機架與 ETC 卡；還車完成後搭乘租車公司免費接駁專車直達機場航廈。',
-        location: 'ニコニコレンタカー 熊本空港店 / 空港周辺ENEOS・出光給油所',
+        location: 'ニコニコレンタカー 熊本空港店 熊本県菊池郡菊陽町',
+        mainMapTitle: 'ニコニコレンタカー 熊本空港店 導航',
         reviewQuery: '熊本機場 租車 還車 加油 流程',
         mapCoord: { x: 37, y: 54 }
       },

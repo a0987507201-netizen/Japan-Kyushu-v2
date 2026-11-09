@@ -16,9 +16,9 @@ import { ChecklistsView } from './components/ChecklistsView';
 import { TravelInfoView } from './components/TravelInfoView';
 
 export default function App() {
-  // Storage key versioned to force sync of parking info, attachments and PDF links
-  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261120_parking_assets';
-  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261120_parking_assets';
+  // Storage key versioned to force sync of parking info, attachments, PDF links and refined main/sub-locations Google Maps
+  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261121_kurosaki_starbucks_car_return';
+  const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261121_kurosaki_comfort_hotel';
 
   // Load state from localStorage or initialize with master seed data
   const [days, setDays] = useState<DaySchedule[]>(() => {
@@ -32,14 +32,24 @@ export default function App() {
           parsed[0]?.title === '華航CI198 高雄直飛熊本、高千穗划船與南阿蘇' &&
           parsed[0]?.spots?.some(s => s.name.includes('ニコニコレンタカー 熊本空港店') && s.attachmentImageUrl) &&
           parsed[1]?.spots?.some(s => s.name === '上色見熊野神社') &&
+          parsed[1]?.spots?.some(s => s.subLocations && s.subLocations.length === 4 && s.hideMainMapButton) &&
+          parsed[1]?.spots?.some(s => s.name.includes('草千里') && s.subLocations && s.subLocations.length === 3 && s.mainMapTitle) &&
+          parsed[1]?.spots?.some(s => s.name.includes('黑川溫泉') && s.subLocations?.some(sub => sub.location.includes('maps.app.goo.gl')) && s.subLocations.length === 5) &&
+          parsed[2]?.spots?.some(s => s.name.includes('湯之坪街道') && s.subLocations && s.subLocations.length === 5) &&
+          parsed[2]?.spots?.some(s => s.name.includes('由布まぶし') && s.subLocations && s.subLocations.length === 2 && s.hideMainMapButton) &&
+          parsed[2]?.spots?.some(s => s.name.includes('別府溫泉') && s.subLocations && s.subLocations.length === 3 && s.mainMapTitle) &&
           parsed[2]?.spots?.some(s => s.notes?.includes('金麟湖入口停車場') && s.name.includes('杉乃井') && s.attachmentImageUrl) &&
-          parsed[3]?.spots?.some(s => s.name === '鶴見岳高空纜車') &&
-          parsed[4]?.spots?.some(s => s.notes?.includes('エコロパーク 博多区堅粕第１')) &&
-          parsed[5]?.spots?.some(s => s.name === '糸島 櫻井二見之浦 夫婦岩') &&
+          parsed[3]?.spots?.some(s => s.name.includes('一蘭拉麵') && s.subLocations?.some(sub => sub.location.includes('p2Uwh7mSzd2kqB8a8'))) &&
+          parsed[3]?.spots?.some(s => s.name.includes('コンフォートホテル') && s.location.includes('mzTgSaQeYKswmgTW8')) &&
+          parsed[4]?.spots?.some(s => s.name.includes('食堂煮魚少年') && s.subLocations && s.subLocations.length === 2 && s.hideMainMapButton) &&
+          parsed[4]?.spots?.some(s => s.name.includes('Hotel ETS INN') && s.location.includes('Zw7D1sNDMeEy9qJ39')) &&
+          parsed[5]?.spots?.some(s => s.name.includes('にぎり塚本鮮魚店') && s.location.includes('g1Rjgkao9LeseXoaA')) &&
+          parsed[5]?.spots?.some(s => s.name.includes('太宰府前表参道') && s.subLocations && s.subLocations.length === 7) &&
           parsed[5]?.spots?.some(s => s.name.includes('橋本') && s.attachmentImageUrl) &&
-          parsed[5]?.spots?.some(s => s.name.includes('相鉄') && s.externalLinkUrl) &&
+          parsed[5]?.spots?.some(s => s.name.includes('相鉄') && s.location.includes('taKU8FzEVAuxSLkM7')) &&
           parsed[6]?.spots?.some(s => s.name.includes('COMFY') && s.attachmentImageUrl) &&
-          parsed[7]?.spots?.some(s => s.name === '早餐：星巴克') &&
+          parsed[7]?.spots?.some(s => s.name === '早餐：星巴克' && s.location.includes('kDxZ5t1qZ5k1Ug1SA')) &&
+          parsed[7]?.spots?.some(s => s.name.includes('退房+加油+還車') && s.location.includes('ニコニコレンタカー 熊本空港店')) &&
           parsed[7]?.title === '星巴克早餐、華航CI199熊本返回高雄'
         ) {
           return parsed;
@@ -59,7 +69,9 @@ export default function App() {
         if (
           Array.isArray(parsed) &&
           parsed.some(h => h.name.includes('ETS INN')) &&
-          parsed.some(h => h.name.includes('黒崎')) &&
+          parsed.find(h => h.id === 'hotel-1117')?.mapUrl === 'https://maps.app.goo.gl/mzTgSaQeYKswmgTW8' &&
+          parsed.find(h => h.id === 'hotel-1118')?.mapUrl === 'https://maps.app.goo.gl/Zw7D1sNDMeEy9qJ39' &&
+          parsed.find(h => h.id === 'hotel-1119')?.mapUrl === 'https://maps.app.goo.gl/taKU8FzEVAuxSLkM7' &&
           parsed.find(h => h.id === 'hotel-1120')?.mealPlan === '純住宿' &&
           parsed.find(h => h.id === 'hotel-1120')?.attachmentImageUrl &&
           parsed.find(h => h.id === 'hotel-1119')?.externalLinkUrl &&
@@ -127,6 +139,10 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_days_v20261114_klook_image');
       localStorage.removeItem('kyushu_2026_days_v20261116_suginoi_res_image');
       localStorage.removeItem('kyushu_2026_days_v20261119_hashimoto_res_image');
+      localStorage.removeItem('kyushu_2026_days_v20261120_parking_assets');
+      localStorage.removeItem('kyushu_2026_days_v20261115_lunch_4maps');
+      localStorage.removeItem('kyushu_2026_days_v20261115_kurokawa_kusasenri_maps');
+      localStorage.removeItem('kyushu_2026_days_v20261116_yufuin_beppu_maps');
       localStorage.removeItem('kyushu_2026_hotels');
       localStorage.removeItem('kyushu_2026_hotels_v2');
       localStorage.removeItem('kyushu_2026_hotels_v3');
@@ -143,6 +159,14 @@ export default function App() {
       localStorage.removeItem('kyushu_2026_hotels_v20261114_klook_image');
       localStorage.removeItem('kyushu_2026_hotels_v20261116_suginoi_res_image');
       localStorage.removeItem('kyushu_2026_hotels_v20261119_hashimoto_res_image');
+      localStorage.removeItem('kyushu_2026_hotels_v20261120_parking_assets');
+      localStorage.removeItem('kyushu_2026_hotels_v20261115_lunch_4maps');
+      localStorage.removeItem('kyushu_2026_hotels_v20261115_kurokawa_kusasenri_maps');
+      localStorage.removeItem('kyushu_2026_hotels_v20261116_yufuin_beppu_maps');
+      localStorage.removeItem('kyushu_2026_days_v20261116_refined_maps_nav');
+      localStorage.removeItem('kyushu_2026_hotels_v20261116_refined_maps_nav');
+      localStorage.removeItem('kyushu_2026_days_v20261117_hakata_dazaifu_maps');
+      localStorage.removeItem('kyushu_2026_hotels_v20261117_hakata_kumamoto_maps');
     } catch {}
 
     // Check if days currently loaded on client need updating to the latest spot titles and Day 1/8 title
@@ -150,19 +174,32 @@ export default function App() {
       days[0]?.title !== '華航CI198 高雄直飛熊本、高千穗划船與南阿蘇' ||
       !days[0]?.spots?.some(s => s.name.includes('ニコニコレンタカー 熊本空港店') && s.attachmentImageUrl) ||
       !days[1]?.spots?.some(s => s.name === '上色見熊野神社') ||
+      !days[1]?.spots?.some(s => s.subLocations && s.subLocations.length === 4 && s.hideMainMapButton) ||
+      !days[1]?.spots?.some(s => s.name.includes('草千里') && s.subLocations && s.subLocations.length === 3 && s.mainMapTitle) ||
+      !days[1]?.spots?.some(s => s.name.includes('黑川溫泉') && s.subLocations?.some(sub => sub.location.includes('maps.app.goo.gl')) && s.subLocations.length === 5) ||
+      !days[2]?.spots?.some(s => s.name.includes('湯之坪街道') && s.subLocations && s.subLocations.length === 5) ||
+      !days[2]?.spots?.some(s => s.name.includes('由布まぶし') && s.subLocations && s.subLocations.length === 2 && s.hideMainMapButton) ||
+      !days[2]?.spots?.some(s => s.name.includes('別府溫泉') && s.subLocations && s.subLocations.length === 3 && s.mainMapTitle) ||
       !days[2]?.spots?.some(s => s.notes?.includes('金麟湖入口停車場') && s.name.includes('杉乃井') && s.attachmentImageUrl) ||
-      !days[3]?.spots?.some(s => s.name === '鶴見岳高空纜車') ||
-      !days[4]?.spots?.some(s => s.notes?.includes('エコロパーク 博多区堅粕第１')) ||
-      !days[5]?.spots?.some(s => s.name === '糸島 櫻井二見之浦 夫婦岩') ||
+      !days[3]?.spots?.some(s => s.name.includes('一蘭拉麵') && s.subLocations?.some(sub => sub.location.includes('p2Uwh7mSzd2kqB8a8'))) ||
+      !days[3]?.spots?.some(s => s.name.includes('コンフォートホテル') && s.location.includes('mzTgSaQeYKswmgTW8')) ||
+      !days[4]?.spots?.some(s => s.name.includes('食堂煮魚少年') && s.subLocations && s.subLocations.length === 2 && s.hideMainMapButton) ||
+      !days[4]?.spots?.some(s => s.name.includes('Hotel ETS INN') && s.location.includes('Zw7D1sNDMeEy9qJ39')) ||
+      !days[5]?.spots?.some(s => s.name.includes('にぎり塚本鮮魚店') && s.location.includes('g1Rjgkao9LeseXoaA')) ||
+      !days[5]?.spots?.some(s => s.name.includes('太宰府前表参道') && s.subLocations && s.subLocations.length === 7) ||
       !days[5]?.spots?.some(s => s.name.includes('橋本') && s.attachmentImageUrl) ||
-      !days[5]?.spots?.some(s => s.name.includes('相鉄') && s.externalLinkUrl) ||
+      !days[5]?.spots?.some(s => s.name.includes('相鉄') && s.location.includes('taKU8FzEVAuxSLkM7')) ||
       !days[6]?.spots?.some(s => s.name.includes('COMFY') && s.attachmentImageUrl) ||
-      !days[7]?.spots?.some(s => s.name === '早餐：星巴克') ||
+      !days[7]?.spots?.some(s => s.name === '早餐：星巴克' && s.location.includes('kDxZ5t1qZ5k1Ug1SA')) ||
+      !days[7]?.spots?.some(s => s.name.includes('退房+加油+還車') && s.location.includes('ニコニコレンタカー 熊本空港店')) ||
       days[7]?.title !== '星巴克早餐、華航CI199熊本返回高雄'
     ) {
       setDays(INITIAL_DAYS);
     }
     if (
+      hotels.find(h => h.id === 'hotel-1117')?.mapUrl !== 'https://maps.app.goo.gl/mzTgSaQeYKswmgTW8' ||
+      hotels.find(h => h.id === 'hotel-1118')?.mapUrl !== 'https://maps.app.goo.gl/Zw7D1sNDMeEy9qJ39' ||
+      hotels.find(h => h.id === 'hotel-1119')?.mapUrl !== 'https://maps.app.goo.gl/taKU8FzEVAuxSLkM7' ||
       hotels.find(h => h.id === 'hotel-1120')?.mealPlan !== '純住宿' ||
       !hotels.find(h => h.id === 'hotel-1120')?.attachmentImageUrl ||
       !hotels.find(h => h.id === 'hotel-1119')?.externalLinkUrl ||

@@ -168,10 +168,24 @@ export function exportSingleFileHtml(
                       </span>
                       <h3 class="text-sm font-bold text-slate-800 mt-1">\${spot.name}</h3>
                     </div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=\${encodeURIComponent(spot.location)}" target="_blank" class="px-2.5 py-1 text-xs bg-white text-[#C86D56] border border-[#EBDCD3] rounded-lg shadow-sm">
-                      導航 ↗
-                    </a>
+                    \${!spot.hideMainMapButton ? \`
+                      <a href="\${spot.location.startsWith('http') ? spot.location : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(spot.location)}" target="_blank" class="px-2.5 py-1 text-xs bg-white text-[#C86D56] border border-[#EBDCD3] rounded-lg shadow-sm">
+                        \${spot.mainMapTitle || '導航'} ↗
+                      </a>
+                    \` : ''}
                   </div>
+                  \${spot.subLocations && spot.subLocations.length > 0 ? \`
+                    <div class="mt-2.5 p-2 bg-amber-50/70 rounded-xl border border-amber-200">
+                      <div class="text-[11px] font-bold text-amber-900 mb-1">📍 個別景點導航：</div>
+                      <div class="grid grid-cols-2 gap-1.5">
+                        \${spot.subLocations.map(sub => \`
+                          <a href="\${sub.location.startsWith('http') ? sub.location : 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(sub.location)}" target="_blank" class="text-[11px] p-1.5 bg-white text-[#C86D56] border border-[#ECD9CE] rounded-lg block truncate font-medium">
+                            🧭 \${sub.name}
+                          </a>
+                        \`).join('')}
+                      </div>
+                    </div>
+                  \` : ''}
                   <p class="text-xs text-slate-600 mt-2 leading-relaxed">\${spot.notes}</p>
                   \${spot.tips ? \`<div class="text-[11px] text-[#A8523D] bg-[#FDF5F2] p-2 rounded-lg mt-2 font-medium">📷 \${spot.tips}</div>\` : ''}
                 </div>
@@ -184,10 +198,17 @@ export function exportSingleFileHtml(
                   <span class="text-[10px] font-bold text-amber-800 tracking-wide uppercase">今晚精選旅宿</span>
                   \${hotel.mealPlan ? \`<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">\${hotel.mealPlan}</span>\` : ''}
                 </div>
-                <h3 class="text-sm font-bold text-slate-800 mt-1">\${hotel.name} (\${hotel.jpName})</h3>
-                <div class="text-xs text-slate-600 mt-1 flex flex-wrap gap-2 font-mono">
-                  <span>入住: <strong>\${hotel.checkIn}</strong></span>
-                  <span>退房: <strong>\${hotel.checkOut}</strong></span>
+                <div class="flex items-start justify-between gap-2 mt-1">
+                  <div>
+                    <h3 class="text-sm font-bold text-slate-800">\${hotel.name} (\${hotel.jpName})</h3>
+                    <div class="text-xs text-slate-600 mt-1 flex flex-wrap gap-2 font-mono">
+                      <span>入住: <strong>\${hotel.checkIn}</strong></span>
+                      <span>退房: <strong>\${hotel.checkOut}</strong></span>
+                    </div>
+                  </div>
+                  <a href="\${hotel.mapUrl || ('https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(hotel.address))}" target="_blank" class="px-2.5 py-1 text-xs bg-amber-100 text-amber-900 border border-amber-300 rounded-lg shadow-sm shrink-0">
+                    飯店導航 ↗
+                  </a>
                 </div>
                 <p class="text-xs text-slate-500 mt-1">地址：\${hotel.address}</p>
                 <div class="text-xs text-amber-900 mt-2 space-y-1">
