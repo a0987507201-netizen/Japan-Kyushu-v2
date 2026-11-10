@@ -103,24 +103,51 @@ export const KyushuMapView: React.FC<KyushuMapViewProps> = ({
 
     days.forEach((d) => {
       d.spots.forEach((s) => {
-        // Exclude flights and pure car logistics
-        if (s.category === 'flight' || s.name.includes('KHH') || s.name.includes('KMJ')) {
+        // Exclude flights and pure transit/car logistics (airport pickup, expressway transit, gas/return)
+        if (
+          s.category === 'flight' ||
+          s.name.includes('KHH') ||
+          s.name.includes('KMJ') ||
+          s.name.includes('退房+加油+還車') ||
+          s.name.includes('前往熊本 (中途休一站') ||
+          s.name.includes('ニコニコレンタカー 熊本空港店 取車')
+        ) {
           return;
         }
 
-        // Exclude restaurants and dining items (いまきん, 高千穗牛, 星乃咖啡, 白金茶房, 星巴克, 石藏酒造, etc.)
-        const isDining =
-          (s.category === 'food' && !s.name.includes('深耶馬溪') && !s.name.includes('黑川溫泉街') && !s.name.includes('由布院散策')) ||
-          s.name.includes('いまきん食堂') ||
-          s.name.includes('高千穗牛餐廳') ||
-          s.name.includes('星乃咖啡') ||
-          s.name.includes('白金茶房') ||
-          s.name.includes('星巴克') ||
+        // Specific famous sightseeing streets & cultural attractions that involve street walks / snacks
+        const isSightseeingAttraction =
+          s.name.includes('黑川溫泉') ||
+          s.name.includes('湯之坪街道') ||
+          s.name.includes('太宰府前表参道') ||
+          s.name.includes('太宰府表參道') ||
           s.name.includes('石藏酒造') ||
-          s.name.includes('赤牛丼午餐') ||
-          s.name.includes('流水麵') ||
-          s.name.includes('早餐：') ||
-          s.name.includes('早餐預約');
+          s.name.includes('石蔵酒造') ||
+          s.name.includes('中洲屋台街');
+
+        // Pure dining items (breakfast, lunch, dinner, specific restaurants/cafes)
+        const isDining =
+          !isSightseeingAttraction &&
+          (s.category === 'food' ||
+            s.name.includes('早餐：') ||
+            s.name.includes('早餐預約') ||
+            s.name.includes('午餐：') ||
+            s.name.includes('晚餐：') ||
+            s.name.includes('いまきん食堂') ||
+            s.name.includes('高千穗牛餐廳') ||
+            s.name.includes('星乃咖啡') ||
+            s.name.includes('白金茶房') ||
+            s.name.includes('星巴克') ||
+            s.name.includes('赤牛丼') ||
+            s.name.includes('流水麵') ||
+            s.name.includes('塚本鮮魚店') ||
+            s.name.includes('かじか茶屋') ||
+            s.name.includes('由布まぶし') ||
+            s.name.includes('煮魚少年') ||
+            s.name.includes('いちたか') ||
+            s.name.includes('洋食の店 橋本') ||
+            s.name.includes('菅乃屋') ||
+            s.name.includes('一蘭拉麵'));
 
         if (isDining) {
           return;

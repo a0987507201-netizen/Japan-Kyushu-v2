@@ -249,7 +249,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【停車建議】建議停放於御鹽井第1停車場 (最靠近划船乘船處)，步行 3 分鐘即可抵達搭船口。',
         location: '高千穂峡 宮崎県西臼杵郡高千穂町三田井',
         reviewQuery: '高千穗峽谷 停車場 交通',
-        mapCoord: { x: 50, y: 62 }
+        mapCoord: { x: 49.2, y: 61.6 }
       },
       {
         id: 's-1114-5',
@@ -260,7 +260,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【拍照取景角度】由船頭仰拍飛瀑與柱狀玄武岩絕壁；同伴也可在步道上的「御鹽井橋」俯拍小船穿行瀑布下的明信片經典視角。',
         location: '高千穂峡 貸しボート 宮崎県西臼杵郡高千穂町三田井 御塩井',
         reviewQuery: '高千穗峽谷 划船 預約 攻略 真名井瀑布',
-        mapCoord: { x: 50, y: 62 }
+        mapCoord: { x: 50.8, y: 62.4 }
       },
       {
         id: 's-1114-6',
@@ -641,7 +641,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【時間掌控】16:40 抵達剛好銜接 17:00~17:15 日落夕陽與 17:30 藍調 Magic Hour 夜景轉換黃金時刻！',
         location: '皿倉山ケーブルカー 山麓駅 福岡県北九州市八幡東区大字尾倉1481-1',
         reviewQuery: '皿倉山纜車 營業時間 票價 尾倉',
-        mapCoord: { x: 50, y: 19 }
+        mapCoord: { x: 49.3, y: 19 }
       },
       {
         id: 's-1117-6',
@@ -652,7 +652,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【拍攝重點】17:30~18:15 天空呈現深邃藍調 (Blue Hour)，城市燈火漸次亮起，與夕陽餘暉交織最為動人。注意山頂風大，請務必穿著防風大衣。',
         location: '皿倉山展望台 福岡県北九州市八幡東区大字尾倉',
         reviewQuery: '皿倉山夜景 拍照時間 新日本三大夜景',
-        mapCoord: { x: 50, y: 19 }
+        mapCoord: { x: 50.7, y: 19 }
       },
       {
         id: 's-1117-7',
@@ -856,7 +856,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
         tips: '【參拜看點】觸摸神牛牛頭祈求智慧開運，本堂兩側神木「飛梅」相傳一夜自京都飛越而來，神聖靈驗。',
         location: '太宰府天満宮 福岡県太宰府市宰府4-7-1',
         reviewQuery: '太宰府天滿宮 參拜 假殿 藤本壯介',
-        mapCoord: { x: 40, y: 29 }
+        mapCoord: { x: 40, y: 28.5 }
       },
       {
         id: 's-1119-5',
@@ -898,7 +898,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
           }
         ],
         reviewQuery: '太宰府表參道 天山本店 やす武 coba cafe 筑紫庵漢堡',
-        mapCoord: { x: 40, y: 29 }
+        mapCoord: { x: 40, y: 29.8 }
       },
       {
         id: 's-1119-6',
