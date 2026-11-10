@@ -295,63 +295,66 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
       {hotel && (
         <div className="mt-6 pt-2">
           {/* Section Header with mealPlan & attached link/image beside it */}
-          <div className="flex items-center gap-2 mb-2.5 px-1 flex-wrap">
+          <div className="flex items-center justify-between gap-2 mb-2.5 px-1 flex-wrap">
             <div className="flex items-center gap-1.5 shrink-0">
               <span className="w-1.5 h-4 rounded-full bg-amber-600" />
               <h3 className="text-sm font-bold text-slate-800">今晚精選旅宿</h3>
             </div>
 
-            {hotel.mealPlan ? (
-              <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full shrink-0 ${
-                hotel.mealPlan.includes('二食')
-                  ? 'bg-amber-100 text-amber-900 border border-amber-300'
-                  : hotel.mealPlan.startsWith('純住宿') || hotel.mealPlan.includes('不含早餐')
-                  ? 'bg-slate-100 text-slate-800 border border-slate-300'
-                  : hotel.mealPlan.includes('含早餐') || hotel.mealPlan.includes('早餐')
-                  ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
-                  : 'bg-slate-100 text-slate-800 border border-slate-300'
-              }`}>
-                {hotel.mealPlan.includes('二食')
-                  ? '一泊二食 (早晚餐)'
-                  : hotel.mealPlan.startsWith('純住宿') || hotel.mealPlan.includes('不含早餐')
-                  ? '純住宿'
-                  : hotel.mealPlan.includes('含早餐') || hotel.mealPlan.includes('早餐')
-                  ? '含早餐'
-                  : '純住宿'}
-              </span>
-            ) : (
-              <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-md shrink-0">
-                一泊享受
-              </span>
-            )}
+            {/* MealPlan badge and attached image/PDF strictly grouped together so they never break/wrap between each other */}
+            <div className="flex items-center gap-1.5 shrink-0 whitespace-nowrap">
+              {hotel.mealPlan ? (
+                <span className={`text-xs font-semibold px-2.5 py-0.5 rounded-full shrink-0 whitespace-nowrap ${
+                  hotel.mealPlan.includes('二食')
+                    ? 'bg-amber-100 text-amber-900 border border-amber-300'
+                    : hotel.mealPlan.startsWith('純住宿') || hotel.mealPlan.includes('不含早餐')
+                    ? 'bg-slate-100 text-slate-800 border border-slate-300'
+                    : hotel.mealPlan.includes('含早餐') || hotel.mealPlan.includes('早餐')
+                    ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                    : 'bg-slate-100 text-slate-800 border border-slate-300'
+                }`}>
+                  {hotel.mealPlan.includes('二食')
+                    ? '一泊二食 (早晚餐)'
+                    : hotel.mealPlan.startsWith('純住宿') || hotel.mealPlan.includes('不含早餐')
+                    ? '純住宿'
+                    : hotel.mealPlan.includes('含早餐') || hotel.mealPlan.includes('早餐')
+                    ? '含早餐'
+                    : '純住宿'}
+                </span>
+              ) : (
+                <span className="text-xs bg-amber-100 text-amber-800 font-medium px-2 py-0.5 rounded-md shrink-0 whitespace-nowrap">
+                  一泊享受
+                </span>
+              )}
 
-            {/* Attachment Preview (e.g. 11/16 別府溫泉預定, 11/20 And COMFY 飯店停車場) beside mealPlan */}
-            {hotel.attachmentImageUrl && (
-              <button
-                onClick={() => setPreviewImage({
-                  url: hotel.attachmentImageUrl!,
-                  title: hotel.attachmentTitle || `${hotel.name} 相關圖片`
-                })}
-                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-full border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95 shrink-0"
-              >
-                <ImageIcon className="w-3 h-3 text-blue-600" />
-                <span>{hotel.attachmentTitle || '預訂單'}</span>
-              </button>
-            )}
+              {/* Attachment Preview (e.g. 11/16 別府溫泉預定, 11/20 And COMFY 飯店停車場) beside mealPlan */}
+              {hotel.attachmentImageUrl && (
+                <button
+                  onClick={() => setPreviewImage({
+                    url: hotel.attachmentImageUrl!,
+                    title: hotel.attachmentTitle || `${hotel.name} 相關圖片`
+                  })}
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium text-blue-700 bg-blue-50 hover:bg-blue-100 rounded-full border border-blue-200 transition-colors shadow-2xs cursor-pointer active:scale-95 shrink-0 whitespace-nowrap"
+                >
+                  <ImageIcon className="w-3 h-3 text-blue-600" />
+                  <span>{hotel.attachmentTitle || '預訂單'}</span>
+                </button>
+              )}
 
-            {/* External Link (e.g. 11/19 飯店停車場 PDF) beside mealPlan */}
-            {hotel.externalLinkUrl && (
-              <a
-                href={hotel.externalLinkUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-full border border-emerald-200 transition-colors shadow-2xs active:scale-95 shrink-0"
-              >
-                <FileText className="w-3 h-3 text-emerald-600" />
-                <span>{hotel.externalLinkTitle || '停車場指引'}</span>
-                <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
-              </a>
-            )}
+              {/* External Link (e.g. 11/19 飯店停車場 PDF) beside mealPlan */}
+              {hotel.externalLinkUrl && (
+                <a
+                  href={hotel.externalLinkUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2.5 py-0.5 text-xs font-medium text-emerald-800 bg-emerald-50 hover:bg-emerald-100 rounded-full border border-emerald-200 transition-colors shadow-2xs active:scale-95 shrink-0 whitespace-nowrap"
+                >
+                  <FileText className="w-3 h-3 text-emerald-600" />
+                  <span>{hotel.externalLinkTitle || '停車場指引'}</span>
+                  <ExternalLink className="w-2.5 h-2.5 text-emerald-600/70" />
+                </a>
+              )}
+            </div>
           </div>
 
           <div className="glass-card rounded-3xl p-4 bg-gradient-to-br from-[#FFFDF9] via-[#FAF6F0] to-[#F5ECE4] border border-[#E5DACF] shadow-sm">
