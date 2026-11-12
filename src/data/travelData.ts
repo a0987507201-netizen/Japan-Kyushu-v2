@@ -200,10 +200,11 @@ export const INITIAL_DAYS: DaySchedule[] = [
     forecast: {
       tempMin: 8,
       tempMax: 18,
-      condition: '秋高氣爽',
+      condition: '多雲時晴 · 涼爽舒適',
+      rainProb: '降雨機率 15% (晴朗無雨)',
       foliageStatus: '色づき見頃 (紅黃交織)'
     },
-    outfitTip: '白天氣候宜人約 17~18°C，峽谷水邊稍涼；傍晚南阿蘇高原氣溫降至 8~10°C，建議攜帶輕量防風保暖外套。',
+    outfitTip: '白天氣候宜人約 17~18°C，高千穗峽谷水邊與傍晚南阿蘇高原氣溫降至 8~10°C，建議攜帶輕量防風保暖外套。降雨機率低（15%），晴朗天氣適合划船與公路自駕。',
     hotelId: 'hotel-1114',
     spots: [
       {
@@ -296,10 +297,11 @@ export const INITIAL_DAYS: DaySchedule[] = [
     forecast: {
       tempMin: 6,
       tempMax: 16,
-      condition: '清晨微寒轉晴',
+      condition: '陰時多雲 · 偶有短暫陣雨',
+      rainProb: '降雨機率 45% (午後有雨，備折傘)',
       foliageStatus: '見頃最盛期 (鮮紅亮麗)'
     },
-    outfitTip: '清晨上色見熊野神社林間較冷，需著保暖外套與防滑鞋；下午草千里高原風大；晚間黑川溫泉穿浴衣在街上漫步，外層套上羽織或厚大衣保暖。',
+    outfitTip: '清晨上色見熊野神社林間較冷，需著保暖外套與防滑鞋；下午草千里高原風大；晚間黑川溫泉穿浴衣在街上漫步，外層套上羽織或厚大衣保暖。本日受鋒面影響午後山區偶有短暫陣雨（降雨機率約 45%），請隨身攜帶輕便折疊傘。',
     hotelId: 'hotel-1115',
     spots: [
       {
@@ -446,12 +448,13 @@ export const INITIAL_DAYS: DaySchedule[] = [
     title: '九重夢大吊橋、由布岳公路、湯之坪街道漫步與別府溫泉',
     area: '九重 / 湯布院 / 別府溫泉',
     forecast: {
-      tempMin: 9,
+      tempMin: 7,
       tempMax: 17,
-      condition: '秋高氣爽',
+      condition: '晨微雨轉多雲放晴',
+      rainProb: '降雨機率 25% (晨間局部，午後晴)',
       foliageStatus: '見頃 (最盛期)'
     },
-    outfitTip: '早晨走吊橋與由布岳公路風大較冷，需防風外套；由布院散策與別府市區溫暖舒適。',
+    outfitTip: '早晨走九重夢大吊橋與由布岳公路風大較冷（約 7~10°C），需防風保暖外套；由布院散策與別府市區溫暖舒適。清晨由布岳山區偶有零星微雨（降雨機率 25%），午後放晴轉乾爽。',
     hotelId: 'hotel-1116',
     spots: [
       {
@@ -581,11 +584,12 @@ export const INITIAL_DAYS: DaySchedule[] = [
     area: '別府 / 耶馬溪 / 添田英彥山 / 北九州皿倉山',
     forecast: {
       tempMin: 7,
-      tempMax: 15,
-      condition: '晴時多雲',
+      tempMax: 16,
+      condition: '晴時多雲 · 乾燥秋爽',
+      rainProb: '降雨機率 10% (晴朗無雨)',
       foliageStatus: '見頃最盛期 (深耶馬溪紅葉燦爛)'
     },
-    outfitTip: '別府纜車山頂標高 1375m 且皿倉山夜晚風大（約 6~8°C），請穿著防風保暖外套與薄圍巾。',
+    outfitTip: '別府纜車山頂標高 1375m 且皿倉山夜晚風大（約 6~8°C），請穿著防風保暖外套與薄圍巾。全日高氣壓籠罩晴時多雲，降雨機率僅 10%（極佳賞景視野）。',
     hotelId: 'hotel-1117',
     spots: [
       {
@@ -695,15 +699,16 @@ export const INITIAL_DAYS: DaySchedule[] = [
     date: '2026-11-18',
     dateLabel: '11/18',
     weekday: '週三',
-    title: '吞山觀音寺、石藏百年酒藏、博多聖誕市集與中洲屋台',
-    area: '糟屋篠栗 / 博多市區 / 中洲',
+    title: '吞山觀音寺、石藏酒造、運河城一番賞、天神與博多雙聖誕市集與中洲屋台',
+    area: '糟屋篠栗 / 博多市區 / 天神 / 中洲',
     forecast: {
-      tempMin: 8,
-      tempMax: 17,
-      condition: '秋高氣爽',
+      tempMin: 9,
+      tempMax: 18,
+      condition: '多雲時陰 · 傍晚短暫雨',
+      rainProb: '降雨機率 45% (傍晚局部雨，備折傘)',
       foliageStatus: '見頃 (寺院紅葉地毯)'
     },
-    outfitTip: '早晨吞山觀音寺標高450m體感微涼，備薄外套；市區自由行與晚上逛聖誕市集、中洲屋台散策，穿著好走休閒鞋即可。',
+    outfitTip: '早晨吞山觀音寺標高450m體感微涼，備薄外套；下午市區逛街購物與傍晚各大聖誕市集、中洲屋台夜市散策，穿著舒適好走休閒鞋。本日受南方水氣影響，傍晚聖誕市集期間偶有零星陣雨機率（約 45%），建議隨身攜帶折傘備用。',
     hotelId: 'hotel-1118',
     spots: [
       {
@@ -721,7 +726,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
         id: 's-1118-2',
         time: '11:30',
         name: '石藏酒造 博多百年藏',
-        category: 'food',
+        category: 'culture',
         notes: '博多現存唯一的百年造酒廠「石藏酒造 博多百年藏」，登錄為國家有形文化財！紅磚白壁的古樸酒藏極具歷史韻味。現場可試飲多款純米大吟釀、初榨生酒與果香梅酒 (可購買 Klook 試飲體驗方案，亦可於現場直接購買試飲)。',
         tips: '【推薦伴手禮】限定款「博多白壁」純米大吟釀口感清雅圓潤；「百年藏梅酒」濃郁回甘，瓶身優雅極具紀念價值。',
         location: '石蔵酒造 博多百年蔵 福岡県福岡市博多区堅粕1-30-1',
@@ -730,7 +735,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
       },
       {
         id: 's-1118-3',
-        time: '13:00',
+        time: '12:45',
         name: '午餐：食堂煮魚少年 / 博多もつ鍋 いちたか 博多本店',
         category: 'food',
         notes: '【備註午/晚餐推薦名單】：1.「食堂煮魚少年」博多超人氣煮魚定食名店，每日挑選當季鮮魚以特製甜鹹醬汁慢火煨煮入味 2.「博多もつ鍋 いちたか 博多本店」名物牛腸鍋，頂級牛腸配上鮮甜高麗菜與濃醇高湯。',
@@ -752,48 +757,107 @@ export const INITIAL_DAYS: DaySchedule[] = [
       },
       {
         id: 's-1118-4',
-        time: '14:30',
-        name: '福岡市區自由行 (天神 / 博多運河城 / 動漫購物)',
-        category: 'shopping',
-        notes: '享受福岡市區悠閒漫遊與逛街採買時光！推薦熱門地標：1. 博多運河城 (Bandai Namco Cross Store 官方一番賞與超巨型扭蛋機海) 2. 天神 PARCO 本館 (Jump Shop、寶可夢中心、動漫專區) 3. 駿河屋天神店與 Bic Camera。',
-        tips: '【逛街便利】博多與天神商圈地鐵或公車直達，地下街四通八達，適合採買日系服飾、藥妝與一番賞戰利品。',
-        location: 'キャナルシティ博多 / 天神PARCO 福岡市',
-        reviewQuery: '博多運河城 天神PARCO 動漫 一番賞 扭蛋',
-        mapCoord: { x: 37, y: 25 }
-      },
-      {
-        id: 's-1118-5',
-        time: '17:30',
-        name: '入住 Hotel ETS INN 博多',
+        time: '14:15',
+        name: '入住 Hotel ETS INN 博多 (停車放行李)',
         category: 'hotel',
-        notes: '前往飯店辦理入住放行李。飯店坐落於 JR 博多站筑紫口步行僅 3 分鐘！交通位置極致便捷，下樓隨時能回房間放置購物戰利品。【停車資訊】預計在飯店附近停車，停車場地址：エコロパーク 博多区堅粕第１ (自費)。',
-        tips: '【停車與地段優勢】預計於飯店周邊自費停車場「エコロパーク 博多区堅粕第１」停車；鄰近博多車站筑紫口，前往今晚的博多站前聖誕市集步行只需 3 分鐘。',
+        notes: '午餐後先前往飯店辦理入住手續並寄存大件行李。飯店坐落於 JR 博多站筑紫口步行僅 3 分鐘！交通位置極致便捷。【停車資訊】預計在飯店附近停車，停車場地址：エコロパーク 博多区堅粕第１ (自費)。停妥車輛後即可輕裝搭乘地鐵/巴士展開市區自由行！',
+        tips: '【停車優勢】事先將車輛停放在「エコロパーク 博多区堅粕第１」，省去下午在繁華天神商圈開車塞車與高昂停車費的困擾；晚上逛完各大市集後隨時可步行回房休息。',
         location: 'https://maps.app.goo.gl/Zw7D1sNDMeEy9qJ39',
         mainMapTitle: 'Hotel ETS INN 博多 導航',
         reviewQuery: 'ホテル エイツイン 博多 エコロパーク 博多区堅粕第１ 停車場 住宿評價',
-        mapCoord: { x: 38, y: 24 }
+        mapCoord: { x: 38.3, y: 24.3 }
+      },
+      {
+        id: 's-1118-5',
+        time: '14:45',
+        name: '博多運河城：扭蛋、一番賞 (博多巴士總站為備選)',
+        category: 'shopping',
+        notes: '前往福岡代表性超大型水岸商城「博多運河城 (Canal City Hakata)」！直奔南館 B1F「Bandai Namco Cross Store」，擁有極具震撼規模的數百台扭蛋機海、萬代官方一番賞專賣店、JUMP SHOP 與寶可夢周邊專櫃，享受抽一番賞與扭蛋樂趣；整點還可在中央水幕欣賞壯觀音樂噴泉水舞秀！【備選方案】：若想就近在博多站採買一番賞，亦可前往緊鄰博多站的「博多巴士總站 8F」Namco 專區。',
+        tips: '【扭蛋與一番賞攻略】南館 B1F Bandai Namco 擁有九州數一數二的官方一番賞配額與限定扭蛋；下單前可先查看櫃檯展示的剩餘大獎籤表！以下提供運河城與備選巴士總站專屬 Google Maps 導航連結。',
+        location: 'キャナルシティ博多 福岡県福岡市博多区住吉1丁目2',
+        hideMainMapButton: true,
+        subLocations: [
+          {
+            name: '博多運河城 (Bandai Namco 扭蛋一番賞)',
+            location: 'キャナルシティ博多 バンダイナムコ Cross Store 福岡県福岡市博多区住吉1丁目2'
+          },
+          {
+            name: '博多巴士總站 8F (Namco 備選)',
+            location: '博多バスターミナル 8F 福岡県福岡市博多区博多駅中央街2-1'
+          }
+        ],
+        reviewQuery: '博多運河城 一番賞 扭蛋 Bandai Namco Cross Store 博多巴士總站',
+        mapCoord: { x: 37.6, y: 24.7 }
       },
       {
         id: 's-1118-6',
-        time: '18:30',
-        name: '博多聖誕市集 (Christmas Market in 光之街・博多)',
-        category: 'scenic',
-        notes: '【冬季限定浪漫慶典】每年 11 月中旬起於 JR 博多站前廣場盛大登場的「光之街・博多」冬季聖誕市集！數十萬顆 LED 璀璨燈飾將廣場化為童話銀河，現場有歐洲木屋攤位、限定馬克杯香料熱紅酒 (Glühwein)、熱可可、德國烤香腸與現場音樂表演。',
-        tips: '【拍照與體驗】購買每年獨家設計的「年度限定博多聖誕馬克杯」盛裝熱紅酒帶回家留念；巨型發光聖誕樹前是必拍焦點！',
-        location: 'JR博多駅前広場 福岡市博多区博多駅中央街1-1',
-        reviewQuery: '博多聖誕市集 光之街博多 熱紅酒 馬克杯',
-        mapCoord: { x: 38, y: 24 }
+        time: '16:15',
+        name: 'Mina 天神購物 (mina tenjin)',
+        category: 'shopping',
+        notes: '搭乘地鐵（櫛田神社前站至天神南站）抵達福岡天神最新大型購物地標「ミーナ天神 (mina tenjin)」！全館網羅九州最大規模的「UNIQLO 旗艦店」與「GU」、超大型生活文具風格選物「LOFT」、平價快速配鏡「JINS」、宜得利 NITORI 與超人氣百元生活雜貨「Seria」，服飾配件、美妝雜貨一次買齊。',
+        tips: '【逛街重點】ミーナ天神地下連通天神地下街，各樓層動線寬敞新穎，UNIQLO 與 LOFT 免稅手續集中辦理極為迅速順暢。',
+        location: 'ミーナ天神 福岡県福岡市中央区天神4丁目3-8',
+        mainMapTitle: 'Mina 天神 Google Maps',
+        reviewQuery: 'ミーナ天神 mina tenjin UNIQLO LOFT 逛街 推薦',
+        mapCoord: { x: 36.6, y: 23.6 }
       },
       {
         id: 's-1118-7',
-        time: '21:00',
+        time: '17:45',
+        name: '天神市役所西側聖誕市集 (TENJIN CHRISTMAS MARKET)',
+        category: 'scenic',
+        notes: '從 Mina 天神沿渡邊通向南漫步，首站來到天神商圈最經典、人氣最旺盛的「TENJIN CHRISTMAS MARKET (福岡市役所西側ふれあい広場)」！矗立著最具代表性的傳統歐洲旋轉木偶塔 (Weihnachtspyramide)，現場瀰漫著香料熱紅酒 (Glühwein)、熱蘋果酒、剛出爐的德國烤香腸與現炸吉拿棒香氣，伴隨溫馨歡樂的聖誕管樂與現場 LIVE 音樂表演。',
+        tips: '【限定馬克杯】天神市役所市集每年推出天神限定款聖誕馬克杯，點熱紅酒即可連同陶瓷馬克杯一起帶回收藏！主要導航為天神市役所西側廣場。',
+        location: '福岡市役所 西側ふれあい広場 福岡県福岡市中央区天神1丁目8-1',
+        mainMapTitle: '天神市役所西側聖誕市集 Google Maps',
+        reviewQuery: '天神市役所 聖誕市集 TENJIN CHRISTMAS MARKET 熱紅酒 馬克杯',
+        mapCoord: { x: 36.8, y: 24.1 }
+      },
+      {
+        id: 's-1118-8',
+        time: '18:30',
+        name: '天神中央公園聖誕市集 (光之森林) & KBC FESTA de SANTA',
+        category: 'scenic',
+        notes: '【向東銜接中洲完美動線】從市役所西側廣場過馬路向東漫步至「天神中央公園聖誕市集 (QTnet presents 光のフォレスト)」！整座公園林蔭大道化為璀璨光之森林，巨型閃耀光廊與歐風小木屋交織，氣氛浪漫唯美。【備註順遊亮點】：緊鄰公園東側的「舊福岡縣公會堂貴賓館」前廣場同步登場「KBC FESTA de SANTA」聖誕市集！滿滿的聖誕老人裝置藝術、復古國家重要文化財洋館夜間倒影與童話打卡造景超好拍。逛完後沿著公園東緣即可直通春吉橋/福博相會橋，無縫銜接中洲屋台街！',
+        tips: '【拍照與體驗】17:30~18:00 點燈初刻天空呈現深邃藍調，貴賓館洋館與光之森林燈飾一同入鏡最具層次美感。以下提供天神中央公園與貴賓館聖誕市集專屬 Google Maps 導航連結。',
+        location: '天神中央公園 福岡県福岡市中央区天神1丁目1',
+        hideMainMapButton: true,
+        subLocations: [
+          {
+            name: '天神中央公園 (光之森林聖誕市集)',
+            location: '天神中央公園 福岡県福岡市中央区天神1丁目1'
+          },
+          {
+            name: 'KBC FESTA de SANTA (舊福岡縣公會堂貴賓館前)',
+            location: '旧福岡県公会堂貴賓館 福岡県福岡市中央区西中洲6-29'
+          }
+        ],
+        reviewQuery: '天神中央公園 聖誕市集 光のフォレスト KBC FESTA de SANTA 貴賓館',
+        mapCoord: { x: 37.1, y: 24.3 }
+      },
+      {
+        id: 's-1118-9',
+        time: '19:30',
         name: '中洲屋台街散策',
         category: 'food',
-        notes: '夜晚漫步前往那珂川河畔的「中洲屋台街」！體驗福岡最地道濃厚的屋台夜市文化。在熱氣騰騰的布簾小攤下品嚐招牌博多長濱豚骨拉麵、明太子煎餃、烤土雞串燒與關東煮，感受昭和復古風情。',
-        tips: '【屋台禮儀】屋台座位有限，建議人齊再入座；點一碗拉麵配上一杯生啤酒或梅酒，體驗最道地的博多夜生活。',
+        notes: '由天神中央公園/貴賓館向東跨越春吉橋，步行僅約 3 分鐘即達那珂川河畔的「中洲屋台街」！體驗福岡最地道濃厚的庶民夜市飲食文化。在熱氣蒸騰的布簾小攤下，品嚐招牌長濱豚骨拉麵、酥脆明太子鐵鍋煎餃、炭火土雞串燒與濃香關東煮，吹著清涼河風感受昭和復古溫暖人情味。',
+        tips: '【屋台用餐技巧】中洲屋台座位較少，見有空位即可入座；低消通常為一人點一杯飲品加主食或小菜，人齊後再進店更受攤主歡迎。主要導航為中洲屋台街。',
         location: '中洲屋台街 福岡県福岡市博多区中洲1丁目8',
-        reviewQuery: '中洲屋台 推薦 拉麵 明太子煎餃 關東煮',
-        mapCoord: { x: 37, y: 24 }
+        mainMapTitle: '中洲屋台街 Google Maps',
+        reviewQuery: '中洲屋台街 推薦 拉麵 明太子煎餃 關東煮 營業時間',
+        mapCoord: { x: 37.4, y: 24.4 }
+      },
+      {
+        id: 's-1118-10',
+        time: '21:00',
+        name: '博多車站聖誕市集 (Christmas Market in 光之街・博多)',
+        category: 'scenic',
+        notes: '【冬季壓軸浪漫慶典】搭乘地鐵或散步返回 JR 博多站前廣場！「光之街・博多」數十萬顆 LED 璀璨燈飾將整個車站廣場化為童話銀河，聳立的巨型星光聖誕樹在夜空中閃爍璀璨。現場可品嚐年度限定「博多款聖誕馬克杯」盛裝的熱騰騰香料熱紅酒，在悠揚樂聲中為一整天的福岡市區自由行畫下最完美的句點。步行 3 分鐘即可回到 Hotel ETS INN 休息。',
+        tips: '【散步回飯店】博多站前聖誕市集就在飯店正對面車站西口（博多口），結束後穿過車站通道步行 3 分鐘即可回到筑紫口 Hotel ETS INN 博多，回房放置今天在運河城、Mina天神採買的戰利品。',
+        location: 'JR博多駅前広場 福岡市博多区博多駅中央街1-1',
+        mainMapTitle: '博多車站聖誕市集 Google Maps',
+        reviewQuery: '博多聖誕市集 光之街博多 熱紅酒 馬克杯 JR博多站',
+        mapCoord: { x: 38.1, y: 24.0 }
       }
     ]
   },
@@ -807,10 +871,11 @@ export const INITIAL_DAYS: DaySchedule[] = [
     forecast: {
       tempMin: 9,
       tempMax: 18,
-      condition: '秋陽普照',
+      condition: '多雲轉晴 · 秋陽普照',
+      rainProb: '降雨機率 20% (降雨停歇轉晴)',
       foliageStatus: '見頃 (千如寺大楓盛開)'
     },
-    outfitTip: '早晨糸島海邊海風較強需防風外套；太宰府表參道散策氣溫舒適；晚間熊本下通逛街輕鬆愜意。',
+    outfitTip: '早晨糸島海邊海風較強需防風外套；太宰府表參道散策氣溫舒適；晚間熊本下通逛街輕鬆愜意。雨勢停歇轉晴朗乾燥，降雨機率降至 20%，出遊舒適。',
     hotelId: 'hotel-1119',
     spots: [
       {
@@ -948,12 +1013,13 @@ export const INITIAL_DAYS: DaySchedule[] = [
     title: '熊本城、上天草海鮮、倉岳天空之鳥居、長部田海床路與菅乃屋',
     area: '熊本市區 / 上天草 / 倉岳 / 宇土海床路',
     forecast: {
-      tempMin: 9,
-      tempMax: 18,
-      condition: '晴朗秋陽',
+      tempMin: 10,
+      tempMax: 19,
+      condition: '秋高氣爽 · 晴天無雨',
+      rainProb: '降雨機率 10% (晴朗乾燥)',
       foliageStatus: '熊本城大銀杏金黃見頃'
     },
-    outfitTip: '天草倉岳山頂與宇土海床路海風稍大，需備防風保暖外套；傍晚海邊觀景拍照風大，晚間熊本市區逛街溫暖舒適。',
+    outfitTip: '天草倉岳山頂與宇土海床路海風稍大，需備防風保暖外套；傍晚海邊觀景拍照風大，晚間熊本市區逛街溫暖舒適。全日秋陽高照、降雨機率極低（10%），非常適合海床路退潮拍照。',
     hotelId: 'hotel-1120',
     spots: [
       {
@@ -1019,7 +1085,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
         name: '晚餐：菅乃屋 銀座通り店 (已預約 19:00)',
         category: 'food',
         notes: '【重要預約：19:00 準時入席】熊本百年頂級馬肉料理代表名門「菅乃屋 銀座通り店」！擁有自家專屬牧場，品嚐極致霜降馬肉刺身 (櫻肉)、入口即化的生馬肉壽司、特選石燒馬肉排或櫻花肉涮涮鍋，肉質細嫩鮮甜無任何羶味。',
-        tips: '【必吃推薦】特選馬肉刺身拼盤（包含霜降、赤身、鬃頸肉三種部位）搭配特製甜醬油與薑泥蒜泥，再小酌一杯熊本在地純米清酒，享受熊本最高水準的奢華饗宴。',
+        tips: '【必吃推薦】特選馬肉刺身拼盤（包含霜降、赤身、鬃頸肉三種部位）搭配特製甜醬油與薑泥蒜泥，再小酌一杯熊本在地純米清酒，享受熊本最高水準的奢化饗宴。',
         location: '菅乃屋 銀座通り店 熊本県熊本市中央区下通1-9-10 TM21ビル B1F',
         reviewQuery: '菅乃屋 銀座通り店 馬肉 料理 食記 推薦',
         mapCoord: { x: 36, y: 53 }
@@ -1036,10 +1102,11 @@ export const INITIAL_DAYS: DaySchedule[] = [
     forecast: {
       tempMin: 10,
       tempMax: 19,
-      condition: '晴朗秋陽',
+      condition: '晴朗秋陽 · 午後多雲',
+      rainProb: '降雨機率 15% (白天平地無雨)',
       foliageStatus: '秋末滿載而歸'
     },
-    outfitTip: '搭機舒適服裝，隨身攜帶輕薄外套以備機上空調與高雄高溫。',
+    outfitTip: '搭機舒適服裝，隨身攜帶輕薄外套以備機上空調與高雄高溫。白天降雨機率僅 15%，退房加油還車與至熊本機場路程平順無雨。',
     hotelId: 'hotel-1120',
     spots: [
       {

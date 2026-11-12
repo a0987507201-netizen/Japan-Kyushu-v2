@@ -123,7 +123,10 @@ export const KyushuMapView: React.FC<KyushuMapViewProps> = ({
           s.name.includes('太宰府表參道') ||
           s.name.includes('石藏酒造') ||
           s.name.includes('石蔵酒造') ||
-          s.name.includes('中洲屋台街');
+          s.name.includes('中洲屋台街') ||
+          s.name.includes('聖誕市集') ||
+          s.name.includes('Mina') ||
+          s.name.includes('運河城');
 
         // Pure dining items (breakfast, lunch, dinner, specific restaurants/cafes)
         const isDining =

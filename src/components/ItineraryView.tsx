@@ -14,6 +14,7 @@ import {
   Sparkles,
   Thermometer,
   CloudSun,
+  Umbrella,
   Leaf,
   CheckCircle2,
   AlertCircle,
@@ -119,14 +120,22 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
         <div className="mt-3 grid grid-cols-1 gap-2 pt-2.5 border-t border-[#E8DFD8]">
           <div className="flex items-center justify-between text-xs text-slate-600">
             <div className="flex items-center gap-1.5">
-              <CloudSun className="w-4 h-4 text-[#D9A05B]" />
+              <CloudSun className="w-4 h-4 text-[#D9A05B] shrink-0" />
               <span className="font-medium">{day.forecast.condition}</span>
             </div>
             <div className="flex items-center gap-1 font-mono tabular-nums font-semibold text-slate-700">
-              <Thermometer className="w-3.5 h-3.5 text-[#C86D56]" />
+              <Thermometer className="w-3.5 h-3.5 text-[#C86D56] shrink-0" />
               <span>{day.forecast.tempMin}°C ~ {day.forecast.tempMax}°C</span>
             </div>
           </div>
+          {day.forecast.rainProb && (
+            <div className="flex items-center">
+              <div className="flex items-center gap-1.5 text-[11px] font-semibold text-sky-800 bg-sky-50 px-2 py-0.5 rounded-full border border-sky-200 shadow-2xs">
+                <Umbrella className="w-3 h-3 text-sky-600 shrink-0" />
+                <span>降雨機率：{day.forecast.rainProb}</span>
+              </div>
+            </div>
+          )}
 
           <div className="text-[11px] text-slate-600 bg-white/70 p-2.5 rounded-2xl border border-[#EDE2D8] leading-relaxed">
             <span className="font-bold text-[#A8523D]">🧣 穿搭與行李提醒：</span>

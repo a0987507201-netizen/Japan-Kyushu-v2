@@ -59,6 +59,7 @@ export interface DaySchedule {
     tempMin: number;
     tempMax: number;
     condition: string;
+    rainProb?: string; // e.g. "降雨機率 10% (晴朗無雨)"
     foliageStatus: string; // e.g. "見頃 (最盛期)", "色づき始め"
   };
   outfitTip: string;
