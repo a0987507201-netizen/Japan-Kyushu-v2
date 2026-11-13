@@ -16,8 +16,8 @@ import { ChecklistsView } from './components/ChecklistsView';
 import { TravelInfoView } from './components/TravelInfoView';
 
 export default function App() {
-  // Storage key versioned to force sync of parking info, attachments, PDF links and refined main/sub-locations Google Maps
-  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261121_kurosaki_starbucks_car_return';
+  // Storage key versioned to force sync of parking info, attachments, PDF links, refined main/sub-locations Google Maps, and updated foliage status
+  const DAYS_STORAGE_KEY = 'kyushu_2026_days_v20261121_foliage_status_updated';
   const HOTELS_STORAGE_KEY = 'kyushu_2026_hotels_v20261121_kurosaki_comfort_hotel';
 
   // Load state from localStorage or initialize with master seed data

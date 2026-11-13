@@ -202,7 +202,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
       tempMax: 18,
       condition: '多雲時晴 · 涼爽舒適',
       rainProb: '降雨機率 15% (晴朗無雨)',
-      foliageStatus: '色づき見頃 (紅黃交織)'
+      foliageStatus: '高千穗峽谷・色づき見頃 (紅黃交織)'
     },
     outfitTip: '白天氣候宜人約 17~18°C，高千穗峽谷水邊與傍晚南阿蘇高原氣溫降至 8~10°C，建議攜帶輕量防風保暖外套。降雨機率低（15%），晴朗天氣適合划船與公路自駕。',
     hotelId: 'hotel-1114',
@@ -299,7 +299,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
       tempMax: 16,
       condition: '陰時多雲 · 偶有短暫陣雨',
       rainProb: '降雨機率 45% (午後有雨，備折傘)',
-      foliageStatus: '見頃最盛期 (鮮紅亮麗)'
+      foliageStatus: '黑川溫泉・見頃最盛期 (川畔楓紅)'
     },
     outfitTip: '清晨上色見熊野神社林間較冷，需著保暖外套與防滑鞋；下午草千里高原風大；晚間黑川溫泉穿浴衣在街上漫步，外層套上羽織或厚大衣保暖。本日受鋒面影響午後山區偶有短暫陣雨（降雨機率約 45%），請隨身攜帶輕便折疊傘。',
     hotelId: 'hotel-1115',
@@ -587,7 +587,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
       tempMax: 16,
       condition: '晴時多雲 · 乾燥秋爽',
       rainProb: '降雨機率 10% (晴朗無雨)',
-      foliageStatus: '見頃最盛期 (深耶馬溪紅葉燦爛)'
+      foliageStatus: '深耶馬溪一目八景・見頃最盛期 (奇岩群楓)'
     },
     outfitTip: '別府纜車山頂標高 1375m 且皿倉山夜晚風大（約 6~8°C），請穿著防風保暖外套與薄圍巾。全日高氣壓籠罩晴時多雲，降雨機率僅 10%（極佳賞景視野）。',
     hotelId: 'hotel-1117',
@@ -706,7 +706,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
       tempMax: 18,
       condition: '多雲時陰 · 傍晚短暫雨',
       rainProb: '降雨機率 45% (傍晚局部雨，備折傘)',
-      foliageStatus: '見頃 (寺院紅葉地毯)'
+      foliageStatus: '吞山觀音寺・見頃最盛 (紅葉絨毯)'
     },
     outfitTip: '早晨吞山觀音寺標高450m體感微涼，備薄外套；下午市區逛街購物與傍晚各大聖誕市集、中洲屋台夜市散策，穿著舒適好走休閒鞋。本日受南方水氣影響，傍晚聖誕市集期間偶有零星陣雨機率（約 45%），建議隨身攜帶折傘備用。',
     hotelId: 'hotel-1118',
@@ -1017,7 +1017,7 @@ export const INITIAL_DAYS: DaySchedule[] = [
       tempMax: 19,
       condition: '秋高氣爽 · 晴天無雨',
       rainProb: '降雨機率 10% (晴朗乾燥)',
-      foliageStatus: '熊本城大銀杏金黃見頃'
+      foliageStatus: '熊本城・大銀杏金黃色づき (金葉見頃)'
     },
     outfitTip: '天草倉岳山頂與宇土海床路海風稍大，需備防風保暖外套；傍晚海邊觀景拍照風大，晚間熊本市區逛街溫暖舒適。全日秋陽高照、降雨機率極低（10%），非常適合海床路退潮拍照。',
     hotelId: 'hotel-1120',

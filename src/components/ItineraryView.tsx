@@ -97,16 +97,18 @@ export const ItineraryView: React.FC<ItineraryViewProps> = ({
     <div className="space-y-4 pb-20 animate-in fade-in duration-300">
       {/* Day Overview Banner Card */}
       <div className="glass-card rounded-3xl p-4.5 bg-gradient-to-br from-[#FFFDFB] via-[#FAF4F0] to-[#F7EBE8]/50 border border-[#EADBCE] shadow-sm">
-        <div className="flex items-center justify-between gap-2 mb-2">
-          <div className="flex items-center gap-1.5">
-            <span className="text-xs font-bold text-[#C86D56] bg-[#F7EBE8] px-2.5 py-0.5 rounded-full">
+        <div className="flex items-center justify-between gap-1.5 mb-2 flex-nowrap overflow-hidden">
+          <div className="flex items-center gap-1.5 shrink-0 min-w-0">
+            <span className="text-xs font-bold text-[#C86D56] bg-[#F7EBE8] px-2.5 py-0.5 rounded-full whitespace-nowrap shrink-0">
               {day.dateLabel} {day.weekday}
             </span>
-            <span className="text-xs text-slate-500 font-medium">{day.area}</span>
+            <span className="text-xs text-slate-500 font-medium truncate hidden xs:inline sm:inline">
+              {day.area}
+            </span>
           </div>
 
-          {/* Foliage Badge */}
-          <div className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#A8523D] bg-orange-100/70 px-2 py-0.5 rounded-full border border-orange-200">
+          {/* Foliage Badge (單行不折行) */}
+          <div className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#A8523D] bg-orange-100/70 px-2.5 py-0.5 rounded-full border border-orange-200 shrink-0 whitespace-nowrap">
             <span>🍁</span>
             <span>{day.forecast.foliageStatus}</span>
           </div>
